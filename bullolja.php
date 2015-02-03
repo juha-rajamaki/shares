@@ -3,9 +3,11 @@ exec('reset');
 $marker      	= $argv['1'];
 $wait 		= 10;
 $has_changed 	= 0;
+$now = date('d.m.Y H:i:s');
 
 $url = "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
 
+echo "Run start @ ".$now."";
 echo "\nLegend\n\n";
 echo "".chr(27) . "[42m" ."TODAY HIGHEST". chr(27) . "[0m"." ";
 echo "".chr(27) . "[44m" ."HIGH". chr(27) . "[0m"." ";
@@ -34,9 +36,6 @@ for ($x = 0; $x <= 10000; $x++) {
 	$current 	= $matches[0][0];
 	$today_lowest 	= $matches[0][9];
 	$today_highest	= $matches[0][8];
-
-// print_r($matches);
-// die('xxX');
 
 	curl_close($curl);
 
@@ -103,6 +102,13 @@ if($current != $has_changed)  {
 
 		// GOING DOWN
                 echo "".chr(27) . "[1;33m" ."$pre%". chr(27) . "[0m"." ";
+
+	}
+
+	if($current == $today_highest) {
+
+
+//                echo "".chr(27) . "[1;32m" ."". chr(27) . "[0m"." ";
 
 	}
 
