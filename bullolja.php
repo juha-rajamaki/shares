@@ -9,6 +9,7 @@ $has_changed_plus		= 0;
 $has_changed_negative		= 0;
 $now 				= date('d.m.Y H:i:s');
 $url 				= "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
+$text 				= 1;
 
 echo "Run start @ ".$now."";
 echo "\n\nLegend\n\n";
@@ -17,9 +18,7 @@ echo "".chr(27) . "[44m" ."HIGH". chr(27) . "[0m"." ";
 echo "".chr(27) . "[40m" ."NO CHANGE". chr(27) . "[0m"." ";
 echo "".chr(27) . "[43m" ."LOW". chr(27) . "[0m"." ";
 echo "".chr(27) . "[41m" ."TODAY LOWEST". chr(27) . "[0m"." ";
-echo "\n# = MARKER (if set as parameter)\n";
-
-echo "\nBull Olja X5 C - kehitys :\n\n";
+echo "\n# = MARKER (if set as parameter)\n\n";
 
 for ($x = 0; $x <= 10000; $x++) {
 
@@ -41,6 +40,11 @@ for ($x = 0; $x <= 10000; $x++) {
 	$current 	= $matches[0][0];
 	$today_lowest 	= $matches[0][9];
 	$today_highest	= $matches[0][8];
+
+	if($text != 0) {
+	        $text           = "Today start: $today_start \nToday lowest: $today_lowest \nCurrent: $current \nToday Highest: $today_highest\n";
+		echo $text; echo "\nBull Olja X5 C - kehitys :\n\n"; $text = 0;
+	}
 
 	curl_close($curl);
 
@@ -97,14 +101,16 @@ if($current != $has_changed)  {
                 // GOING UP
 		$has_changed_plus++;
 		$has_changed_negative = 0;
-                $pre = "".chr(27) . "[1;32m" ."$pre%: $has_changed_plus". chr(27) . "[0m"." ";
+                $last_change = round($current / $has_changed * 100 - 100, 2);
+                $pre = "$last_change% ".chr(27) . "[1;32m" ."($pre%):$has_changed_plus". chr(27) . "[0m"." ";
 
 	} else {
 
 		// GOING DOWN
 		$has_changed_negative++;
 		$has_changed_plus = 0;
-                $pre = "".chr(27) . "[1;33m" ."$pre%: $has_changed_negative". chr(27) . "[0m"." ";
+                $last_change = round($current / $has_changed * 100 - 100, 2);
+                $pre = "$last_change% ".chr(27) . "[1;33m" ."($pre%):$has_changed_negative". chr(27) . "[0m"." ";
 
 	}
 
