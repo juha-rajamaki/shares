@@ -8,7 +8,7 @@ $now = date('d.m.Y H:i:s');
 $url = "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
 
 echo "Run start @ ".$now."";
-echo "\nLegend\n\n";
+echo "\n\nLegend\n\n";
 echo "".chr(27) . "[42m" ."TODAY HIGHEST". chr(27) . "[0m"." ";
 echo "".chr(27) . "[44m" ."HIGH". chr(27) . "[0m"." ";
 echo "".chr(27) . "[40m" ."NO CHANGE". chr(27) . "[0m"." ";
@@ -31,6 +31,8 @@ for ($x = 0; $x <= 10000; $x++) {
 
 	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
 	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+
+	if(count($matches[0]) <= 4) { die("Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
 	$today_start    = $matches[0][7];
 	$current 	= $matches[0][0];
