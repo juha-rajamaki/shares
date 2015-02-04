@@ -3,9 +3,9 @@ exec('reset');
 $marker      	= $argv['1'];
 $wait 		= 10;
 $has_changed 	= 0;
-$now = date('d.m.Y H:i:s');
+$now 		= date('d.m.Y H:i:s');
 
-$url = "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
+$url 		= "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
 
 echo "Run start @ ".$now."";
 echo "\n\nLegend\n\n";
@@ -104,13 +104,6 @@ if($current != $has_changed)  {
 
 		// GOING DOWN
                 echo "".chr(27) . "[1;33m" ."$pre%". chr(27) . "[0m"." ";
-
-	}
-
-	if($current == $today_highest) {
-
-
-//                echo "".chr(27) . "[1;32m" ."". chr(27) . "[0m"." ";
 
 	}
 
