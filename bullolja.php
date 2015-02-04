@@ -2,13 +2,13 @@
 ini_alter('date.timezone','Europe/Helsinki');
 exec('reset');
 
-$marker      		= $argv['1'];
-$wait 			= 10;
-$has_changed 		= 0;
-$has_changed_plus	= 0;
-$has_changed_negative	= 0;
-$now 			= date('d.m.Y H:i:s');
-$url 			= "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
+$marker      			= $argv['1'];
+$wait 				= 10;
+$has_changed 			= 0;
+$has_changed_plus		= 0;
+$has_changed_negative		= 0;
+$now 				= date('d.m.Y H:i:s');
+$url 				= "https://www.netfonds.no/quotes/ppaper.php?paper=BULL-OLJA-X5-C.NGM";
 
 echo "Run start @ ".$now."";
 echo "\n\nLegend\n\n";
@@ -79,13 +79,11 @@ if($current != $has_changed)  {
 	if($has_changed > $today_start) {
 
         	$pre = round($current / $today_start * 100 - 100, 2);
-		$has_change_plus++;
 
 	// On Negative side
 	} elseif($has_changed < $today_start) {
 
                 $pre = round($current / $today_start * 100 - 100, 2);
-		$has_changed_negative;
 
 	} else {
 	// No change
@@ -97,18 +95,24 @@ if($current != $has_changed)  {
 	if($current > $has_changed) {
 
                 // GOING UP
-                $pre = "".chr(27) . "[1;32m" ."$pre%". chr(27) . "[0m"."";
+		$has_changed_plus++;
+		$has_changed_negative = 0;
+                $pre = "".chr(27) . "[1;32m" ."$pre%: $has_changed_plus". chr(27) . "[0m"." ";
 
 	} else {
 
 		// GOING DOWN
-                $pre = "".chr(27) . "[1;33m" ."$pre%". chr(27) . "[0m"."";
+		$has_changed_negative++;
+		$has_changed_plus = 0;
+                $pre = "".chr(27) . "[1;33m" ."$pre%: $has_changed_negative". chr(27) . "[0m"." ";
 
 	}
 
-	echo $pre."(".$has_change_plus-$has_change_negative.")";
+        $has_changed = $current;
 
-	$has_changed = $current;
+	// Show Direction %
+	echo $pre;
+
 }
 
 if($current == $marker) {
