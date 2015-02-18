@@ -40,9 +40,10 @@ for ($x = 0; $x <= 10000; $x++) {
 	$current 	= $matches[0][0];
 	$today_lowest 	= $matches[0][9];
 	$today_highest	= $matches[0][8];
+	$today_average 	= ($today_lowest+$today_highest)/2;
 
 	if($text != 0) {
-	        $text           = "Today start: $today_start \nToday lowest: $today_lowest \nCurrent: $current \nToday Highest: $today_highest\n";
+	        $text           = "Today start: $today_start \nToday lowest: $today_lowest \nToday Highest: $today_highest \nToday average: $today_average \nCurrent: $current \n";
 		echo $text; echo "\nBull Olja X5 C - kehitys :\n\n"; $text = 0;
 	}
 
