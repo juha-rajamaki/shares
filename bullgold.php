@@ -37,10 +37,10 @@ for ($x = 0; $x <= 10000; $x++) {
 
 	if(count($matches[0]) <= 4) { die("Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
-	$today_start    = $matches[0][7];
+	$today_start    = $matches[0][5];
 	$current 	= $matches[0][0];
-	$today_lowest 	= $matches[0][9];
-	$today_highest	= $matches[0][8];
+	$today_lowest 	= $matches[0][7];
+	$today_highest	= $matches[0][6];
 
 	if($text != 0) {
 	        $text           = "Today start: $today_start \nToday lowest: $today_lowest \nCurrent: $current \nToday Highest: $today_highest\n";
