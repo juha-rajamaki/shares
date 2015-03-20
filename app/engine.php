@@ -102,7 +102,7 @@ if($current != $has_changed)  {
 		$has_changed_plus++;
 		$has_changed_negative = 0;
                 $last_change = round($current / $has_changed * 100 - 100, 2);
-                $pre = "+$last_change% ($pre%):".chr(27) . "[1;32m" ."$has_changed_plus". chr(27) . "[0m"." ";
+                $pre = "".chr(27) . "[1;32m" ."+$last_change%:$has_changed_plus". chr(27) . "[0m"." ($pre%) ";
 
 	} else {
 
@@ -110,7 +110,7 @@ if($current != $has_changed)  {
 		$has_changed_negative++;
 		$has_changed_plus = 0;
                 $last_change = round($current / $has_changed * 100 - 100, 2);
-                $pre = "$last_change% ($pre%):".chr(27) . "[1;33m" ."$has_changed_negative". chr(27) . "[0m"." ";
+                $pre = "".chr(27) . "[1;33m" ."$last_change%:$has_changed_plus". chr(27) . "[0m"." ($pre%) ";
 
 	}
 
