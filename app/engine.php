@@ -38,11 +38,12 @@ for ($x = 0; $x <= 10000; $x++) {
 	$today_lowest 	= $matches[0][9];
 	$today_highest	= $matches[0][8];
 	$today_average 	= ($today_lowest+$today_highest)/2;
+	$volatility 	= round(($today_highest/$today_lowest)*100-100, 2);
 
 	curl_close($curl);
 
 	if($text != 0) {
-        	$text           = "Today start: $today_start \nToday lowest: $today_lowest \nToday Highest: $today_highest \nToday average: $today_average \nCurrent: $current \n";
+        	$text           = "Today Start: $today_start \nToday Lowest: $today_lowest \nToday Highest: $today_highest \nToday Average: $today_average \nCurrent: $current\nVolatility: $volatility% \n";
         	echo $text;
         	echo "\n$title ($url) - kehitys :\n\n";
         	$text = 0;
