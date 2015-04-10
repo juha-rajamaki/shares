@@ -24,12 +24,12 @@ for ($x = 0; $x <= 10000; $x++) {
 	curl_setopt($curl, CURLOPT_URL, $url);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($curl, CURLOPT_HEADER, false);
-	curl_setopt($curl, CURLOPT_SSLVERSION, 3);
+//	curl_setopt($curl, CURLOPT_SSLVERSION, 3);
 
 	$data = curl_exec($curl);
 
 	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
-	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
 	if(count($matches[0]) <= 4) { die("Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
@@ -39,14 +39,17 @@ for ($x = 0; $x <= 10000; $x++) {
 	$today_highest	= $matches[0][8];
 	$today_average 	= ($today_lowest+$today_highest)/2;
 
+	curl_close($curl);
+
 	if($text != 0) {
-	        $text           = "Today start: $today_start \nToday lowest: $today_lowest \nToday Highest: $today_highest \nToday average: $today_average \nCurrent: $current \n";
-		echo $text;
-		echo "\n$title ($url) - kehitys :\n\n";
-		$text = 0;
+        	$text           = "Today start: $today_start \nToday lowest: $today_lowest \nToday Highest: $today_highest \nToday average: $today_average \nCurrent: $current \n";
+        	echo $text;
+        	echo "\n$title ($url) - kehitys :\n\n";
+        	$text = 0;
 	}
 
-	curl_close($curl);
+	// Test if web page available
+        if(count($matches[0]) <= 4) { die("Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
 	// NO CHANGE
 	if($current == $today_start) {
