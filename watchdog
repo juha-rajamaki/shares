@@ -4,12 +4,12 @@
 	ini_alter('date.timezone','Europe/Helsinki');
 
 	$wait                           = 10;
+	$now                            = date('d.m.Y H:i:s');
+        $showtext 			= '';
 
 	require_once('watchdog.conf.example');
         include_once('watchdog.conf');
 	sleep(1);
-
-	$showtext = '';
 
 for ($x = 0; $x <= 10000; $x++) {
 
@@ -43,9 +43,17 @@ for ($x = 0; $x <= 10000; $x++) {
 	endforeach;
 
         exec('reset');
-	print $showtext;
+
+	echo "Watch Dog run started @ ".$now."\n\n".$showtext."\n";
 	$showtext = '';
 
-	sleep ($wait);
+
+echo "[";
+for ($x = 1; $x <= $wait; $x++) {
+        sleep (1);
+	echo ".";
+}
+echo "]";
+
 
 } //for
