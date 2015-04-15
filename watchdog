@@ -1,0 +1,39 @@
+<?php
+/*	WatchDog program for timing your buy's and sell's	*/
+
+	ini_alter('date.timezone','Europe/Helsinki');
+
+	$wait                           = 10;
+
+	require_once('watchdog.conf.example');
+
+for ($x = 0; $x <= 10000; $x++) {
+
+	exec('reset');
+
+	foreach($watchlist as $item):
+
+		$share = $item['SHARE'];
+                require_once("./"."$share");
+
+		print_r($url);
+
+        	$curl = curl_init();
+
+        	curl_setopt($curl, CURLOPT_URL, $url);
+        	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        	curl_setopt($curl, CURLOPT_HEADER, false);
+
+        	$data = curl_exec($curl);
+
+        	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
+        	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+
+		$price = $matches[0][0];
+		echo " ".$price."\n";
+
+	endforeach;
+
+sleep ($wait);
+
+} //for

@@ -1,4 +1,5 @@
 <?php
+
 ini_alter('date.timezone','Europe/Helsinki');
 exec('reset');
 
