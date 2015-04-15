@@ -9,9 +9,9 @@
         include_once('watchdog.conf');
 	sleep(1);
 
-for ($x = 0; $x <= 10000; $x++) {
+	$showtext = '';
 
-	exec('reset');
+for ($x = 0; $x <= 10000; $x++) {
 
 	foreach($watchlist as $item):
 
@@ -31,17 +31,21 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		$price = $matches[0][0];
 
-		if($price < $item['SELL'] && $price > $item['BUY']) { echo "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
-                elseif($price < $item['STRONG_BUY']) { echo "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
-                elseif($price > $item['STRONG_SELL']) { echo "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
-		elseif($price >= $item['SELL']) { echo "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($price <= $item['BUY']) { echo "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
+		if($price < $item['SELL'] && $price > $item['BUY']) { $showtext .= "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
+                elseif($price < $item['STRONG_BUY']) { $showtext .= "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
+                elseif($price > $item['STRONG_SELL']) { $showtext .= "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
+		elseif($price >= $item['SELL']) { $showtext .= "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
+                elseif($price <= $item['BUY']) { $showtext .= "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
 		else{}
 
-		echo " ".$price." - $title ($url)\n";
+		$showtext .= " ".$price." - $title - $url\n";
 
 	endforeach;
 
-sleep ($wait);
+        exec('reset');
+	print $showtext;
+	$showtext = '';
+
+	sleep ($wait);
 
 } //for

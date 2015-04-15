@@ -3,27 +3,27 @@
 $watchlist = array(
 
 	array(
-		"SHARE" => "certificates/bullolja-x5c.php",
-		"STRONG_BUY" => "0.6",
-		"BUY" => "0.8",
-		"SELL" => "1.10",
-		"STRONG_SELL" => "1.25",
+		"SHARE" 	=> "certificates/bullolja-x5c.php",
+		"STRONG_BUY" 	=> "0.6",
+		"BUY" 		=> "0.9",
+		"SELL" 		=> "1.15",
+		"STRONG_SELL" 	=> "1.30",
 	),
 
         array(
-                "SHARE" => "exchange-trade-notes/bullseadrill-x3-cz.php",
-                "STRONG_BUY" => "0.6",
-                "BUY" => "0.8",
-                "SELL" => "1.10",
-                "STRONG_SELL" => "1.40",
+                "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz.php",
+                "STRONG_BUY" 	=> "0.6",
+                "BUY" 		=> "0.9",
+                "SELL" 		=> "1.15",
+                "STRONG_SELL" 	=> "1.40",
         ),
 
         array(
-                "SHARE" => "exchange-trade-notes/bullomx-x15-sg.php",
-                "STRONG_BUY" => "200",
-                "BUY" => "250",
-                "SELL" => "300",
-                "STRONG_SELL" => "350",
+                "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg.php",
+                "STRONG_BUY" 	=> "200",
+                "BUY" 		=> "250",
+                "SELL" 		=> "300",
+                "STRONG_SELL" 	=> "350",
         ),
 
 );

@@ -28,6 +28,7 @@ for ($x = 0; $x <= 10000; $x++) {
 //	curl_setopt($curl, CURLOPT_SSLVERSION, 3);
 
 	$data = curl_exec($curl);
+	$data = str_replace(' ', '', $data);
 
 	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
