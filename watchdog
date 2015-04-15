@@ -6,6 +6,8 @@
 	$wait                           = 10;
 
 	require_once('watchdog.conf.example');
+        include_once('watchdog.conf');
+	sleep(3);
 
 for ($x = 0; $x <= 10000; $x++) {
 
@@ -14,9 +16,7 @@ for ($x = 0; $x <= 10000; $x++) {
 	foreach($watchlist as $item):
 
 		$share = $item['SHARE'];
-                require_once("./"."$share");
-
-		print_r($url);
+                require("./"."$share");
 
         	$curl = curl_init();
 
@@ -30,7 +30,15 @@ for ($x = 0; $x <= 10000; $x++) {
         	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
 		$price = $matches[0][0];
-		echo " ".$price."\n";
+
+		if($price < $item['SELL'] && $price > $item['BUY']) { echo "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
+                elseif($price < $item['STRONG_BUY']) { echo "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
+                elseif($price > $item['STRONG_SELL']) { echo "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
+		elseif($price >= $item['SELL']) { echo "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
+                elseif($price <= $item['BUY']) { echo "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
+		else{}
+
+		echo " ".$price." - $title ($url)\n";
 
 	endforeach;
 
