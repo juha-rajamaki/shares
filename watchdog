@@ -7,7 +7,7 @@
 
 	require_once('watchdog.conf.example');
         include_once('watchdog.conf');
-	sleep(3);
+	sleep(1);
 
 for ($x = 0; $x <= 10000; $x++) {
 
