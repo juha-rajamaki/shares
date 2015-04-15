@@ -1,0 +1,21 @@
+<?php
+
+$watchlist = array(
+
+	array(
+		"SHARE" => "certificates/bullolja-x5c.php",
+		"STRONG_BUY" => "0.6",
+		"BUY" => "0.8",
+		"SELL" => "1.00",
+		"STRONG_SELL" => "1.20",
+	),
+
+        array(
+                "SHARE" => "exchange-trade-notes/bullseadrill-x3-cz.php",
+                "STRONG_BUY" => "0.6",
+                "BUY" => "0.8",
+                "SELL" => "1.00",
+                "STRONG_SELL" => "1.20",
+        )
+
+);

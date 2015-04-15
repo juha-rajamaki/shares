@@ -1,0 +1,7 @@
+<?php
+	ini_alter('date.timezone','Europe/Helsinki');
+	exec('reset');
+
+	$share = $argv[1];
+        include($share);
+	include('app/engine.php');
