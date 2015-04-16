@@ -26,4 +26,12 @@ $watchlist = array(
                 "STRONG_SELL" 	=> "350",
         ),
 
+        array(
+                "SHARE"         => "exchange-trade-notes/bulldax-x15sg.php",
+                "STRONG_BUY"    => "15",
+                "BUY"           => "20",
+                "SELL"          => "25",
+                "STRONG_SELL"   => "30",
+        ),
+
 );
