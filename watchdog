@@ -7,9 +7,12 @@
 	$now                            = date('d.m.Y H:i:s');
         $showtext 			= '';
 
+	require_once('doge.ascii');
 	require_once('watchdog.conf.example');
         include_once('watchdog.conf');
 	sleep(1);
+
+	print_r($doge);
 
 for ($x = 0; $x <= 10000; $x++) {
 
