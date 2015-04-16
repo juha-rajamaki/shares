@@ -13,6 +13,8 @@
 
 for ($x = 0; $x <= 10000; $x++) {
 
+        echo "Watch Dog run started @ ".$now."\n\n";
+
 	foreach($watchlist as $item):
 
 		$share = $item['SHARE'];
@@ -29,31 +31,28 @@ for ($x = 0; $x <= 10000; $x++) {
         	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
         	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
-		$price = $matches[0][0];
-
-		if($price < $item['SELL'] && $price > $item['BUY']) { $showtext .= "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
-                elseif($price < $item['STRONG_BUY']) { $showtext .= "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
-                elseif($price > $item['STRONG_SELL']) { $showtext .= "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
-		elseif($price >= $item['SELL']) { $showtext .= "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($price <= $item['BUY']) { $showtext .= "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
+		$price 	= $matches[0][0];
+		$status = "";
+		
+		if($price < $item['SELL'] && $price > $item['BUY']) { $status = "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
+                elseif($price < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
+                elseif($price > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
+		elseif($price >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
+                elseif($price <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
 		else{}
 
-		$showtext .= " ".$price." - $title - $url\n";
+		echo "$status ".$price." - $title - $url\n";
 
 	endforeach;
 
+	// timeout
+	echo "\n[";
+	for ($x = 1; $x <= $wait; $x++) {
+        	sleep (1);
+        	echo ".";
+	}
+	echo "]";
+
         exec('reset');
-
-	echo "Watch Dog run started @ ".$now."\n\n".$showtext."\n";
-	$showtext = '';
-
-
-echo "[";
-for ($x = 1; $x <= $wait; $x++) {
-        sleep (1);
-	echo ".";
-}
-echo "]";
-
 
 } //for
