@@ -34,17 +34,53 @@ for ($x = 0; $x <= 10000; $x++) {
         	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
         	preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
-		$price 	= $matches[0][0];
-		$status = "";
-		
-		if($price < $item['SELL'] && $price > $item['BUY']) { $status = "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
-                elseif($price < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
-                elseif($price > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
-		elseif($price >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($price <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
-		else{}
+	        $today_start    = $matches[0][7];
+       		$current        = $matches[0][0];
+        	$today_lowest   = $matches[0][9];
+        	$today_highest  = $matches[0][8];
+        	$today_average  = ($today_lowest+$today_highest)/2;
+        	$volatility     = round(($today_highest/$today_lowest)*100-100, 2);
 
-		echo "$status ".$price." - $title - $url\n";
+		// status
+		$status = "";		
+		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."KEEP       ". chr(27) . "[0m".""; }
+                elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
+                elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
+		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
+                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
+		else { die('error: status'); }
+
+		// current
+		# no change
+	        if($current == $today_start) {
+        	        $now = "[40m";
+
+        	} elseif ($current > $today_start) {
+
+                	# IF HIGHEST TODAY
+                	if($current == $today_highest) {
+                        	$now_color = "[42m";
+
+                	} else {
+				# IF HIGH
+                        	$now_color = "[44m"; // GREEN
+                	}
+
+        	} elseif ($current < $today_start) {
+
+	                # IF LOWEST TODAY
+        	        if($current == $today_lowest) {
+                	        $now_color = "[41m";
+
+                	} else {
+                        	# IF LOW
+                        	$now_color = "[43m"; // RED
+                	}
+
+        	} else { die('error:current'); }
+
+		// print out
+		echo "$status $volatility% ".chr(27)."$now_color".$current."". chr(27) . "[0m"." - $title - $url\n";
 
 	endforeach;
 
