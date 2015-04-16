@@ -20,10 +20,10 @@ $watchlist = array(
 
         array(
                 "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg.php",
-                "STRONG_BUY" 	=> "200",
-                "BUY" 		=> "250",
-                "SELL" 		=> "300",
-                "STRONG_SELL" 	=> "350",
+                "STRONG_BUY" 	=> "150",
+                "BUY" 		=> "200",
+                "SELL" 		=> "350",
+                "STRONG_SELL" 	=> "400",
         ),
 
         array(
