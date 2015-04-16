@@ -92,6 +92,6 @@ for ($x = 0; $x <= 10000; $x++) {
 	}
 	echo "]";
 
-        exec('reset');
+        system('clear');
 
 } //for
