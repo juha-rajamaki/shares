@@ -17,6 +17,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ ".$now."\n\n";
+	echo "STATUS      VOL     HIGH    LOW     CUR\n";
 
 	foreach($watchlist as $item):
 
@@ -41,14 +42,19 @@ for ($x = 0; $x <= 10000; $x++) {
         	$today_average  = ($today_lowest+$today_highest)/2;
         	$volatility     = round(($today_highest/$today_lowest)*100-100, 2);
 
+		$space_vol 	= str_repeat(' ', (6-strlen($volatility)));
+                $space_high 	= str_repeat(' ', (7-strlen($today_highest)));
+                $space_low 	= str_repeat(' ', (8-strlen($today_lowest)));
+		$space_cur      = str_repeat(' ', (8-strlen($current)));
+
 		// status
 		$status = "";		
-		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[47m" ."KEEP       ". chr(27) . "[0m".""; }
+		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
-                elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[44m" ."STRONG BUY ". chr(27) . "[0m".""; }
+                elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
                 elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
 		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
+                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
 		// current
@@ -81,7 +87,7 @@ for ($x = 0; $x <= 10000; $x++) {
         	} else { die('error:current'); }
 
 		// print out
-		echo "$status $volatility% ".chr(27)."$now_color".$current."". chr(27) . "[0m"." - $title - $url\n";
+		echo "$status $volatility%$space_vol $today_highest$space_high $today_lowest$space_low".chr(27)."$now_color".$current."". chr(27) . "[0m"."$space_cur $title - $url\n";
 
 	endforeach;
 
