@@ -4,22 +4,25 @@ $watchlist = array(
 
 	array(
 		"SHARE" 	=> "certificates/bullolja-x5c.php",
-		"STRONG_BUY" 	=> "0.6",
+                "ALL_IN"        => "0.5",
+                "STRONG_BUY"    => "0.7",
 		"BUY" 		=> "0.9",
 		"SELL" 		=> "1.15",
-		"STRONG_SELL" 	=> "1.30",
+		"STRONG_SELL" 	=> "1.50",
 	),
 
         array(
                 "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz.php",
-                "STRONG_BUY" 	=> "0.6",
+                "ALL_IN"        => "0.5",
+                "STRONG_BUY" 	=> "0.7",
                 "BUY" 		=> "0.9",
                 "SELL" 		=> "1.15",
-                "STRONG_SELL" 	=> "1.40",
+                "STRONG_SELL" 	=> "1.6",
         ),
 
         array(
                 "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg.php",
+                "ALL_IN"    	=> "50",
                 "STRONG_BUY" 	=> "150",
                 "BUY" 		=> "200",
                 "SELL" 		=> "350",
@@ -28,7 +31,8 @@ $watchlist = array(
 
         array(
                 "SHARE"         => "exchange-trade-notes/bulldax-x15sg.php",
-                "STRONG_BUY"    => "15",
+		"ALL_IN"	=> "5",
+                "STRONG_BUY"    => "10",
                 "BUY"           => "20",
                 "SELL"          => "25",
                 "STRONG_SELL"   => "30",
