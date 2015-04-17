@@ -50,7 +50,6 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_dir              = str_repeat(' ', (7-strlen($today_direction)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
 
-
 		// status
 		$status = "";		
 		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
@@ -61,42 +60,27 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
-		// current
-		# no change
-	        if($current == $today_start) {
-        	        $now = "[40m";
-
+		// now
+	        if($current == $today_start) { $now = "[40m";
         	} elseif ($current > $today_start) {
-
-                	# IF HIGHEST TODAY
-                	if($current == $today_highest) {
-                        	$now_color = "[42m";
-
-                	} else {
-				# IF HIGH
-                        	$now_color = "[44m"; // GREEN
-                	}
-
+                	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
         	} elseif ($current < $today_start) {
-
-	                # IF LOWEST TODAY
-        	        if($current == $today_lowest) {
-                	        $now_color = "[41m";
-
-                	} else {
-                        	# IF LOW
-                        	$now_color = "[43m"; // RED
-                	}
-
+        	        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
         	} else { die('error:current'); }
 
 		// print out
 		$printout = '';
 		$printout .= "$status $today_lowest$space_low $today_highest$space_high $today_average$space_avg";
-		$printout .= "".chr(27)."$now_color".$current."". chr(27) . "[0m"."";
-		$printout .= "$space_cur $space_dir$today_direction%  $space_vol$volatility%   ";
-		$printout .= "$title - $url\n";
+		$printout .= "".chr(27)."$now_color".$current."". chr(27) . "[0m"."$space_cur ";
 
+		// current colors
+		if($today_direction > 0) { $today_direction = "".chr(27) . "[1;32m" ."$today_direction%". chr(27) . "[0m".""; }
+                elseif($today_direction < 0) { $today_direction = "".chr(27) . "[1;31m" ."$today_direction%". chr(27) . "[0m".""; }
+		else { $today_direction = "$today_direction%";  }
+
+		$printout .= "$space_dir$today_direction  ";
+		$printout .= "$space_vol$volatility%   ";
+		$printout .= "$title - $url\n";
 		echo $printout;
 
 	endforeach;
