@@ -85,31 +85,29 @@ for ($x = 0; $x <= 10000; $x++) {
         	        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
         	} else { die('error:current'); }
 
-/*		DOes not work ... yet
+/*		FIX IT
+
                 // make last change
 		if(isset($last_change["".$share.""])) {
 
                 	if($last_change["".$share.""] != $current) {
 
-                                $last_change_show = round($current / $last_change["".$share.""] * 100 - 100, 2);
-
 				if($current > $last_changed["".$share.""]) 
 				{ // Going Up colorize
 
-					$last_change_show = "".chr(27)."[1;32m UP".$last_change_show."";
+                                	$last_change_show = round(100 - $last_change["".$share.""] / $current * 100, 2);
+					$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."";
 
 				} else { // Going Down colorize
 
+                                	$last_change_show = round(100 - $current / $last_change["".$share.""] * 100, 2);
 					$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."";
 
 				}
 
-			$last_change["".$share.""] = $current;
-
                 	}
 
 		} else { $last_change["".$share.""] = $current; }
-
 */
 
                 // make current direction
