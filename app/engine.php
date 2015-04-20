@@ -9,6 +9,7 @@ $has_changed_plus		= 0;
 $has_changed_negative		= 0;
 $now 				= date('d.m.Y H:i:s');
 $text 				= 1;
+$engine				= '';
 
 echo "Run start @ ".$now."";
 echo "\n\nLegend: ";
