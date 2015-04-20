@@ -71,7 +71,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
                 elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
 		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[44m" ."BUY        ". chr(27) . "[0m".""; }
+                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
 		// now
