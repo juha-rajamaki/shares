@@ -3,7 +3,6 @@
 
 	ini_alter('date.timezone','Europe/Helsinki');
 
-	$wait                           = 10;
 	$now                            = date('d.m.Y H:i:s');
         $showtext 			= '';
 

@@ -1,5 +1,10 @@
 <?php
 
+### Time to wait beween upgrading the data
+$wait                           = 10;
+
+
+###	Add here the shares you want to follow
 $watchlist = array(
 
 	array(
