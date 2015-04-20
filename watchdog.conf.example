@@ -1,64 +1,8 @@
 <?php
+/*
+	Configure the watchdog!
+*/
 
-### Time to wait beween upgrading the data
-$wait                           = 10;		// default 10
 
-
-###	Add here the shares you want to follow
-$watchlist = array(
-
-	array(
-		"SHARE" 	=> "certificates/bullolja-x5c.php",
-                "ALL_IN"        => "0.3",
-                "STRONG_BUY"    => "0.7",
-		"BUY" 		=> "0.9",
-		"SELL" 		=> "1.15",
-		"STRONG_SELL" 	=> "1.50",
-	),
-
-        array(
-                "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz.php",
-                "ALL_IN"        => "0.3",
-                "STRONG_BUY" 	=> "0.7",
-                "BUY" 		=> "0.9",
-                "SELL" 		=> "1.15",
-                "STRONG_SELL" 	=> "1.6",
-        ),
-
-        array(
-                "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg.php",
-                "ALL_IN"    	=> "10",
-                "STRONG_BUY" 	=> "100",
-                "BUY" 		=> "260",
-                "SELL" 		=> "350",
-                "STRONG_SELL" 	=> "400",
-        ),
-
-        array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x15sg.php",
-		"ALL_IN"	=> "3",
-                "STRONG_BUY"    => "6",
-                "BUY"           => "10",
-                "SELL"          => "20",
-                "STRONG_SELL"   => "30",
-        ),
-
-        array(
-                "SHARE"         => "exchange-trade-notes/bullvestasx5von.php",
-                "ALL_IN"        => "100",
-                "STRONG_BUY"    => "150",
-                "BUY"           => "200",
-                "SELL"          => "300",
-                "STRONG_SELL"   => "360",
-        ),
-
-        array(
-                "SHARE"         => "warrants/NOK5L-7-26CZB.php",
-                "ALL_IN"        => "0.45",
-                "STRONG_BUY"    => "0.55",
-                "BUY"           => "0.65",
-                "SELL"          => "0.85",
-                "STRONG_SELL"   => "1",
-        ),
-
-);
+#	 Time to wait beween upgrading the data, default 10
+$wait                           = 10;

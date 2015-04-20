@@ -9,12 +9,14 @@
 	$last_change_show		= array();
 	$engine				= '';
 
-	require_once('doge.ascii');
-	require_once('watchdog.conf.example');
+        require_once('doge.ascii');
+        print_r($doge);
+        require_once('watchdog.conf.example');
         include_once('watchdog.conf');
-	sleep(1);
+	require_once('watchdog.list.example');
+        include_once('watchdog.list');
 
-	print_r($doge);
+	sleep(1);
 
 for ($x = 0; $x <= 10000; $x++) {
 
@@ -137,7 +139,6 @@ for ($x = 0; $x <= 10000; $x++) {
         	sleep (1);
         	echo ".";
 	}
-	echo "]";
 
         system('clear');
 
