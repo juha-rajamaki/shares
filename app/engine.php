@@ -31,16 +31,33 @@ for ($x = 0; $x <= 10000; $x++) {
 	$data = str_replace(' ', '', $data);
 
 	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
-        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+
+	if($engine == 1) {
+        
+		preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
+
+        	$today_start    = $matches[0][5];
+        	$current        = $matches[0][0];
+        	$today_lowest   = $matches[0][7];
+	        $today_highest  = $matches[0][8];
+
+	} else {
+
+		preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+
+                $today_start    = $matches[0][7];
+                $current        = $matches[0][0];
+                $today_lowest   = $matches[0][9];
+                $today_highest  = $matches[0][8];
+	}
+
+        $today_average  = ($today_lowest+$today_highest)/2;
+        $volatility     = round(($today_highest/$today_lowest)*100-100, 2);
 
 	if(count($matches[0]) <= 4) { die("Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
-	$today_start    = $matches[0][7];
-	$current 	= $matches[0][0];
-	$today_lowest 	= $matches[0][9];
-	$today_highest	= $matches[0][8];
-	$today_average 	= ($today_lowest+$today_highest)/2;
-	$volatility 	= round(($today_highest/$today_lowest)*100-100, 2);
+//	print_r($matches[0]);
+//	die();
 
 	curl_close($curl);
 
