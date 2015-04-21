@@ -125,7 +125,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 // make current direction
 
                 if($today_direction > 0) { $today_direction = "".chr(27) . "[1;32m" ."$today_direction%". chr(27) . "[0m".""; }
-                elseif($today_direction < 0) { $today_direction = "".chr(27) . "[1;31m" ."$today_direction%". chr(27) . "[0m".""; }
+                elseif($today_direction < 0) { $today_direction = "".chr(27) . "[1;33m" ."$today_direction%". chr(27) . "[0m".""; }
                 else { $today_direction = "$today_direction%";  }
 
 		// print out
