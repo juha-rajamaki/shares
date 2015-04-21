@@ -90,19 +90,19 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
-		// now (color
+		// now (color)
 
-	        if($current == $today_start) { $now = "[40m";
-        	} elseif ($current > $today_start) {
+	        if($current == $today_start) { $now_color = "[40m";
+        	
+		} elseif ($current > $today_start) {
                 	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
         	} elseif ($current < $today_start) {
         	        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
         	} else { die('error:current'); }
 
+
                 // make last change
 		if(isset($last_change["".$share.""])) {
-
-#		echo "last: ".($last_change["".$share.""])." current: $current   ";
 
                 	if($last_change["".$share.""] != $current) {
                                 $last_change_show = round($current / $last_change["".$share.""]  * 100 - 100, 2);
@@ -142,11 +142,12 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		$engine = '';			// reset instrument engine
 		$last_change_show = '';		// reset last change
+		$now_color = '';
 
 	endforeach;
 
 	// timeout
-	echo "\n".$wait."s [";
+	echo "\n".$wait."s[";
 	for ($x = 1; $x <= $wait; $x++) {
         	sleep (1);
         	echo ".";
