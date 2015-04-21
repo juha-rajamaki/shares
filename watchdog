@@ -28,7 +28,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY    LOW     HIGH    AVG     NOW      TODAY     VOL   INSTRUMENT\n";
+	echo "STRATEGY    START   LOW     HIGH    AVG     NOW      TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -71,6 +71,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 if($today_lowest) { $volatility     	= round(($today_highest/$today_lowest)*100-100, 2); } else { $volatility = 0; }
 		$today_direction			= round(($current/$today_start)*100-100, 2);
 
+                $space_start            = str_repeat(' ', (7-strlen($today_start)));
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
                 $space_high 		= str_repeat(' ', (7-strlen($today_highest)));
                 $space_low 		= str_repeat(' ', (7-strlen($today_lowest)));
@@ -130,7 +131,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		// print out
 
 		$printout = '';
-		$printout .= "$status $today_lowest$space_low $today_highest$space_high $today_average$space_avg";
+		$printout .= "$status $today_start$space_start $today_lowest$space_low $today_highest$space_high $today_average$space_avg";
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
