@@ -51,11 +51,11 @@ for ($x = 0; $x <= 10000; $x++) {
 
                         $today_start    = $matches[0][5];
                         $current        = $matches[0][0];
-                        $today_lowest   = $matches[0][7]; // Notice ?
-                        $today_highest  = $matches[0][8]; // Notice ?
+                        $today_lowest   = $matches[0][8]; // Notice ?
+                        $today_highest  = $matches[0][7]; // Notice ?
 
-			// print_r($matches[0]);
-			// die('s');
+			# print_r($matches[0]);
+			# die('s');
 
                 } else {
 
