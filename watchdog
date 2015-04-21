@@ -88,7 +88,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
                 elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
                 elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
-		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[43m" ."SELL       ". chr(27) . "[0m".""; }
+		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[45m" ."SELL       ". chr(27) . "[0m".""; }
                 elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
@@ -97,7 +97,7 @@ for ($x = 0; $x <= 10000; $x++) {
 			} elseif ($current > $today_start) {
         	        	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
         		} elseif ($current < $today_start) {
-        		        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
+        		        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[45m"; }
         	} else { die('error:current'); }
 
                 // make last change

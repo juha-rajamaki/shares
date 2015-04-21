@@ -16,7 +16,7 @@ echo "\n\nLegend: ";
 echo "".chr(27) . "[42m" ."TODAY HIGHEST". chr(27) . "[0m"." ";
 echo "".chr(27) . "[44m" ."HIGH". chr(27) . "[0m"." ";
 echo "".chr(27) . "[40m" ."NO CHANGE". chr(27) . "[0m"." ";
-echo "".chr(27) . "[43m" ."LOW". chr(27) . "[0m"." ";
+echo "".chr(27) . "[45m" ."LOW". chr(27) . "[0m"." ";
 echo "".chr(27) . "[41m" ."TODAY LOWEST". chr(27) . "[0m"."\n\n";
 
 for ($x = 0; $x <= 10000; $x++) {
@@ -91,7 +91,7 @@ for ($x = 0; $x <= 10000; $x++) {
         	        $out = "[41m";
 	        } else {
                 	// IF LOW
-        	        $out = "[43m"; // RED
+        	        $out = "[45m";
 	        }
 
 
