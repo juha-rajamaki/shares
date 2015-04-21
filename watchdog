@@ -145,7 +145,7 @@ for ($x = 0; $x <= 10000; $x++) {
 	endforeach;
 
 	// timeout
-	echo "\n[";
+	echo "\n".$wait."s [";
 	for ($x = 1; $x <= $wait; $x++) {
         	sleep (1);
         	echo ".";
