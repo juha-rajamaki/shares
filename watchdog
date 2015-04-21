@@ -127,8 +127,8 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$space_vol$volatility%   ";
 		$printout .= "$title";
 		if($last_change_show) { $printout .= " $last_change_show%"; }
-
-		echo "\n".$printout."";
+		$printout .= "\n";
+		echo "$printout";
 
 		$engine = '';			// reset instrument engine
 		$last_change_show = '';		// reset last change
