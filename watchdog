@@ -1,7 +1,7 @@
 <?php
 /*
 	WatchDog program for timing your buy's and sell's
-	Written by borre
+	Written by borre 2015
 	Open Source - please free to use and contribute. :)
 */
 
@@ -28,7 +28,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ ".$now."\n\n";
-	echo "STRATEGY    LOW     HIGH    AVG     NOW      TODAY     VOL\n";
+	echo "STRATEGY    LOW     HIGH    AVG     NOW      TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -105,9 +105,9 @@ for ($x = 0; $x <= 10000; $x++) {
                                 $last_change_show = round($current / $last_change["".$share.""]  * 100 - 100, 2);
 				if($last_changed_show > 0) 
 				{ // Going Up colorize
-				$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."". chr(27) . "[0m"."";
+				$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."%". chr(27) . "[0m"."";
 				} else { // Going Down colorize
-				$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."". chr(27) . "[0m"."";
+				$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."%". chr(27) . "[0m"."";
 				}
                 	}
 		} else { $last_change["".$share.""] = $current; }
@@ -126,7 +126,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
 		$printout .= "$title";
-		if($last_change_show) { $printout .= " $last_change_show%"; }
+		if($last_change_show) { $printout .= " $last_change_show"; }
 		$printout .= "\n";
 		echo "$printout";
 
