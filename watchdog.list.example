@@ -57,8 +57,8 @@ $watchlist = array(
                 "ALL_IN"        => "0.45",
                 "STRONG_BUY"    => "0.55",
                 "BUY"           => "0.65",
-                "SELL"          => "0.85",
-                "STRONG_SELL"   => "1",
+                "SELL"          => "0.95",
+                "STRONG_SELL"   => "1.20",
         ),
 
 );
