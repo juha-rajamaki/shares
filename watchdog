@@ -101,11 +101,11 @@ for ($x = 0; $x <= 10000; $x++) {
 				if($last_changed_show > 0) 
 				{ // Going Up colorize
 
-					$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."";
+					$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."". chr(27) . "[0m"."";
 
 				} else { // Going Down colorize
 
-					$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."";
+					$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."". chr(27) . "[0m"."";
 
 				}
 
