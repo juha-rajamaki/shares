@@ -1,5 +1,9 @@
 <?php
-/*	WatchDog program for timing your buy's and sell's	*/
+/*
+	WatchDog program for timing your buy's and sell's
+	Written by borre
+	Open Source - please free to use and contribute. :)
+*/
 
 	ini_alter('date.timezone','Europe/Helsinki');
 
@@ -60,9 +64,9 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Test if the Exchange is open
 		if(count($matches[0]) <= 4) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
-                $today_average  	= round(($today_lowest+$today_highest)/2, 2);
-                if($today_lowest) { $volatility     	= round(($today_highest/$today_lowest)*100-100, 2); }
-		$today_direction	= round(($current/$today_start)*100-100, 2);
+                $today_average  			= round(($today_lowest+$today_highest)/2, 2);
+                if($today_lowest) { $volatility     	= round(($today_highest/$today_lowest)*100-100, 2); } else { $volatility = 0; }
+		$today_direction			= round(($current/$today_start)*100-100, 2);
 
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
                 $space_high 		= str_repeat(' ', (7-strlen($today_highest)));
