@@ -10,7 +10,7 @@
 
 	ini_alter('date.timezone','Europe/Helsinki');
 
-	$now                            = date('d.m.Y H:i:s');
+	$time                            = date('d.m.Y H:i:s');
         $showtext 			= '';
 	$last_change 			= '';
 	$last_change_show		= array();
@@ -27,7 +27,7 @@
 
 for ($x = 0; $x <= 10000; $x++) {
 
-        echo "Watch Dog run started @ ".$now."\n\n";
+        echo "Watch Dog run started @ $time \n\n";
 	echo "STRATEGY    LOW     HIGH    AVG     NOW      TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
@@ -89,7 +89,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
-		// now
+		// now (color
 
 	        if($current == $today_start) { $now = "[40m";
         	} elseif ($current > $today_start) {
