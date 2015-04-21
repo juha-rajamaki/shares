@@ -54,6 +54,9 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_lowest   = $matches[0][7]; // Notice ?
                         $today_highest  = $matches[0][8]; // Notice ?
 
+			// print_r($matches[0]);
+			// die('s');
+
                 } else {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
@@ -135,7 +138,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
-		$printout .= "$title";
+		$printout .= "$title - $url";
 		if($last_change_show) { $printout .= " $last_change_show"; }
 		$printout .= "\n";
 		echo "$printout";
