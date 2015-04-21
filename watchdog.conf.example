@@ -4,5 +4,5 @@
 */
 
 
-#	 Time to wait beween upgrading the data, default 60 seconds
-$wait                           = 60;
+#	 Time to wait beween upgrading the data, default 30 seconds
+$wait                           = 30;
