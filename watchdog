@@ -54,9 +54,6 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_lowest   = $matches[0][8]; // Notice ?
                         $today_highest  = $matches[0][7]; // Notice ?
 
-			# print_r($matches[0]);
-			# die('s');
-
                 } else {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
@@ -144,7 +141,7 @@ for ($x = 0; $x <= 10000; $x++) {
 	endforeach;
 
 	// timeout
-	echo "\n".$wait."s[";
+	echo "\n".$wait."s [";
 	for ($x = 1; $x <= $wait; $x++) {
         	sleep (1);
         	echo ".";
