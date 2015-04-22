@@ -138,7 +138,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$space_vol$volatility%   ";
 		$printout .= "$title$space_title : ";
 
-		if($collector["".$share.""]) {
+		if(isset($collector["".$share.""])) {
 			foreach($collector["".$share.""]['price_direction'] as $value) {
 
 				if($value == 'U') { $printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
