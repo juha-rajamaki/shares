@@ -136,7 +136,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
-		$printout .= "$title$space_title - $url";
+		$printout .= "$title$space_title - $url   ";
 
 		$collector_printout = '';
 
