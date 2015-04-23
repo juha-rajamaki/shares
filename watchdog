@@ -138,14 +138,29 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$space_vol$volatility%   ";
 		$printout .= "$title$space_title : ";
 
+		$collector_printout = '';
+
 		if(isset($collector["".$share.""])) {
 			foreach($collector["".$share.""]['price_direction'] as $value) {
 
-				if($value == 'U') { $printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
-                                if($value == 'D') { $printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
+				$collector_printout .= $value;
+				// if($value == 'U') { $printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
+                                // if($value == 'D') { $printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
 
 			}
 		}
+
+		$collector_printout = str_replace('UUUU', "".chr(27)."[1;32m4". chr(27) . "[0m"."", $collector_printout);
+		$collector_printout = str_replace('UUU', "".chr(27)."[1;32m3". chr(27) . "[0m"."", $collector_printout);
+		$collector_printout = str_replace('UU', "".chr(27)."[1;32m2". chr(27) . "[0m"."", $collector_printout);
+		$collector_printout = str_replace('U', "".chr(27)."[1;32m1". chr(27) . "[0m"."", $collector_printout);
+
+                $collector_printout = str_replace('DDDD', "".chr(27)."[1;33m4". chr(27) . "[0m"."", $collector_printout);
+                $collector_printout = str_replace('DDD', "".chr(27)."[1;33m3". chr(27) . "[0m"."", $collector_printout);
+                $collector_printout = str_replace('DD', "".chr(27)."[1;33m2". chr(27) . "[0m"."", $collector_printout);
+		$collector_printout = str_replace('D', "".chr(27)."[1;33m1". chr(27) . "[0m"."", $collector_printout);
+
+		$printout .= "$collector_printout";
 
 		if($last_change_show) { $printout .= " $last_change_show"; }
 		$printout .= "\n";
@@ -156,8 +171,6 @@ for ($x = 0; $x <= 10000; $x++) {
 		$now_color = '';
 
 	endforeach;
-
-	// print_r($collector);
 
 	// timeout
 	echo "\n".$wait."s [";
