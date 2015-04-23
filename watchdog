@@ -142,10 +142,13 @@ for ($x = 0; $x <= 10000; $x++) {
 		if(isset($collector["".$share.""])) {
 			foreach($collector["".$share.""]['price_direction'] as $value) {
 //				$collector_printout .= $value;
-				if($value == 'U') { $printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
-                                if($value == 'D') { $printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
+				if($value == 'U') { $collector_printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
+                                if($value == 'D') { $collector_printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
 			}
 		}
+
+		$printout .= "   $collector_printout";
+
 /*
 		$collector_printout = str_replace('UUUU', "".chr(27)."[1;32m4". chr(27) . "[0m"."", $collector_printout);
 		$collector_printout = str_replace('UUU', "".chr(27)."[1;32m3". chr(27) . "[0m"."", $collector_printout);
