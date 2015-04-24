@@ -51,9 +51,9 @@ for ($x = 0; $x <= 10000; $x++) {
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start    = $matches[0][5];
-                        $current        = $matches[0][0];
-                        $today_lowest   = ''; // $matches[0][8]; // Notice ?
-                        $today_highest  = ''; // $matches[0][7]; // Notice ?
+                        $current        = $matches[0][4];
+                        $today_lowest   = ''; 			// $matches[0][8]; // Notice ?
+                        $today_highest  = ''; 			// $matches[0][7]; // Notice ?
 
                 } else {
 
