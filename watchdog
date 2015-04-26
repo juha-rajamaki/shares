@@ -46,6 +46,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
 
+		// Warrants
                 if($engine == 1) {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
@@ -54,8 +55,6 @@ for ($x = 0; $x <= 10000; $x++) {
                         if(isset($matches[0][4])) $current        = $matches[0][4];
                         $today_lowest   = '0';
                         $today_highest  = '0';
-
-		// print_r($matches); die('s');
 
                 } else {
 
@@ -67,7 +66,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_highest  = $matches[0][8];
                 }
 
-		// Test if the Exchange is open
+		// Test if the market is open
 		if(count($matches[0]) <= 4) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
                 $today_average  				= round(($today_lowest+$today_highest)/2, 2);
@@ -82,8 +81,9 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_dir              = str_repeat(' ', (6-strlen($today_direction)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
                 $space_title       	= str_repeat(' ', (20-strlen($title)));
+		$space_url		= str_repeat(' ', (67-strlen($url)));
 
-		// status
+		// Strategy indicator
 		$status = "";		
 		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
@@ -93,7 +93,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
 		else { die('error: status'); }
 
-		// now (color)
+		// Now colorizer
 	        if($current == $today_start) { $now_color = "[40m";	
 			} elseif ($current > $today_start) {
         	        	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
@@ -125,42 +125,45 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		} else { $last_change["".$share.""] = $current; }
 
-                // make current direction
+                // Make current direction
 
                 if($today_direction > 0) { $today_direction = "".chr(27) . "[1;32m" ."$today_direction%". chr(27) . "[0m".""; }
                 elseif($today_direction < 0) { $today_direction = "".chr(27) . "[1;33m" ."$today_direction%". chr(27) . "[0m".""; }
                 else { $today_direction = "$today_direction%";  }
 
-		// print out
+		// Collector
+
+                $collector_printout = '';
+                if(isset($collector["".$share.""])) {
+                        foreach($collector["".$share.""]['price_direction'] as $value) {
+                                if($value == 'U') { $collector_printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
+                                if($value == 'D') { $collector_printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
+                        }
+                }
+
+		// Screen print out
 
 		$printout = '';
 		$printout .= "$status $today_start$space_start $today_lowest$space_low $today_highest$space_high $today_average$space_avg";
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
-		$printout .= "$title$space_title $url";
-
-		$collector_printout = '';
-		if(isset($collector["".$share.""])) {
-			foreach($collector["".$share.""]['price_direction'] as $value) {
-				if($value == 'U') { $collector_printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
-                                if($value == 'D') { $collector_printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
-			}
-		}
-
-		$printout .= "   $collector_printout";
-
+		$printout .= "$title$space_title ";
+                $printout .= "$url$space_url ";
+		$printout .= "$collector_printout";
 		if($last_change_show) { $printout .= " $last_change_show"; }
 		$printout .= "\n";
+
 		echo "$printout";
 
 		$engine = '';			// reset instrument engine
 		$last_change_show = '';		// reset last change
-		$now_color = '';
+		$now_color = '';		// reset now color
 
 	endforeach;
 
-	// timeout
+	// Timeout
+
 	echo "\n".$wait."s [";
 	for ($x = 1; $x <= $wait; $x++) {
         	sleep (1);
