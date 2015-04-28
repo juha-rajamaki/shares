@@ -87,9 +87,9 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_cur              = str_repeat(' ', (6-strlen($current)));
                 $space_dir              = str_repeat(' ', (6-strlen($today_direction)));
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
-		$space_buy_now         = str_repeat(' ', (7-strlen($buy_now)));
+		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
 		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
-                $space_title       	= str_repeat(' ', (20-strlen($title)));
+                $space_title       	= str_repeat(' ', (22-strlen($title)));
 		$space_url		= str_repeat(' ', (67-strlen($url)));
 
 		// Strategy indicator
