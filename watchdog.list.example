@@ -35,7 +35,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullomx-x18von2-ngm",
+                "SHARE"         => "exchange-trade-notes/bullomx-x18-von2",
                 "ALL_IN"        => "7.5",
                 "STRONG_BUY"    => "10",
                 "BUY"           => "12",
@@ -53,21 +53,12 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x18-von",
-                "ALL_IN"        => "75",
-                "STRONG_BUY"    => "120",
-                "BUY"           => "150",
-                "SELL"          => "300",
-                "STRONG_SELL"   => "450",
-        ),
-
-        array(
-                "SHARE"         => "exchange-trade-notes/bullvestasx5von",
-                "ALL_IN"        => "100",
-                "STRONG_BUY"    => "150",
-                "BUY"           => "200",
-                "SELL"          => "300",
-                "STRONG_SELL"   => "360",
+                "SHARE"         => "exchange-trade-notes/bulldax-x18-von2",
+                "ALL_IN"        => "7.5",
+                "STRONG_BUY"    => "10",
+                "BUY"           => "12",
+                "SELL"          => "15",
+                "STRONG_SELL"   => "17.5",
         ),
 
         array(
