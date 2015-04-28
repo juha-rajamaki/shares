@@ -29,7 +29,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY    START   LOW     HIGH    AVG     NOW      TODAY     VOL   INSTRUMENT\n";
+	echo "STRATEGY    START   LOW     HIGH    AVG     BUY     SELL    NOW      TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -51,19 +51,23 @@ for ($x = 0; $x <= 10000; $x++) {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
-                        $today_start    = '0';
-                        if(isset($matches[0][4])) $current        = $matches[0][4];
-                        $today_lowest   = '0';
-                        $today_highest  = '0';
+                        $today_start    			= '0';
+                        if(isset($matches[0][4])) $current      = $matches[0][4];
+                        $today_lowest   			= '0';
+                        $today_highest  			= '0';
+			$sell_now				= $matches[0][3];
+                        $buy_now       				= $matches[0][2];
 
                 } else {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
-                        $today_start    = $matches[0][7];
-                        $current        = $matches[0][0];
-                        $today_lowest   = $matches[0][9];
-                        $today_highest  = $matches[0][8];
+                        $today_start    			= $matches[0][7];
+                        $current        			= $matches[0][0];
+                        $today_lowest   			= $matches[0][9];
+                        $today_highest  			= $matches[0][8];
+                        $sell_now                               = $matches[0][4];
+                        $buy_now                                = $matches[0][5];
                 }
 
 		// Test if the market is open
@@ -74,12 +78,14 @@ for ($x = 0; $x <= 10000; $x++) {
 		if($today_start)   {	$today_direction	= round(($current/$today_start)*100-100, 2); } else { $today_direction = 0; }
 
                 $space_start            = str_repeat(' ', (7-strlen($today_start)));
-		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
-                $space_high 		= str_repeat(' ', (7-strlen($today_highest)));
-                $space_low 		= str_repeat(' ', (7-strlen($today_lowest)));
-		$space_cur      	= str_repeat(' ', (6-strlen($current)));
-                $space_dir              = str_repeat(' ', (6-strlen($today_direction)));
+                $space_low              = str_repeat(' ', (7-strlen($today_lowest)));
+                $space_high             = str_repeat(' ', (7-strlen($today_highest)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
+                $space_cur              = str_repeat(' ', (6-strlen($current)));
+                $space_dir              = str_repeat(' ', (6-strlen($today_direction)));
+		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
+		$space_buy_now         = str_repeat(' ', (7-strlen($buy_now)));
+		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
                 $space_title       	= str_repeat(' ', (20-strlen($title)));
 		$space_url		= str_repeat(' ', (67-strlen($url)));
 
@@ -144,7 +150,8 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Screen print out
 
 		$printout = '';
-		$printout .= "$status $today_start$space_start $today_lowest$space_low $today_highest$space_high $today_average$space_avg";
+		$printout .= "$status $today_start$space_start $today_lowest$space_low $today_highest$space_high ";
+		$printout .= "$today_average$space_avg$buy_now$space_buy_now $sell_now$space_sell_now ";
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 		$printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
