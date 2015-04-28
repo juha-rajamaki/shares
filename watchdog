@@ -90,7 +90,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
 		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
                 $space_title       	= str_repeat(' ', (22-strlen($title)));
-		$space_url		= str_repeat(' ', (67-strlen($url)));
+		$space_url		= str_repeat(' ', (70-strlen($url)));
 
 		// Strategy indicator
 		$status = "";		
