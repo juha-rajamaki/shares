@@ -8,7 +8,7 @@
 $watchlist = array(
 
 	array(
-		"SHARE" 	=> "certificates/bullolja-x5c.php",
+		"SHARE" 	=> "certificates/bullolja-x5c",
                 "ALL_IN"        => "0.3",
                 "STRONG_BUY"    => "0.7",
 		"BUY" 		=> "0.95",
@@ -17,7 +17,7 @@ $watchlist = array(
 	),
 
         array(
-                "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz.php",
+                "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz",
                 "ALL_IN"        => "0.3",
                 "STRONG_BUY" 	=> "0.7",
                 "BUY" 		=> "0.95",
@@ -26,7 +26,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg.php",
+                "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg",
                 "ALL_IN"    	=> "10",
                 "STRONG_BUY" 	=> "100",
                 "BUY" 		=> "270",
@@ -35,7 +35,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullomx-x18von2-ngm.php",
+                "SHARE"         => "exchange-trade-notes/bullomx-x18von2-ngm",
                 "ALL_IN"        => "7.5",
                 "STRONG_BUY"    => "10",
                 "BUY"           => "12",
@@ -44,7 +44,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x15sg.php",
+                "SHARE"         => "exchange-trade-notes/bulldax-x15sg",
 		"ALL_IN"	=> "3",
                 "STRONG_BUY"    => "6",
                 "BUY"           => "10.5",
@@ -53,7 +53,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x18-von.php",
+                "SHARE"         => "exchange-trade-notes/bulldax-x18-von",
                 "ALL_IN"        => "75",
                 "STRONG_BUY"    => "120",
                 "BUY"           => "150",
@@ -62,7 +62,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullvestasx5von.php",
+                "SHARE"         => "exchange-trade-notes/bullvestasx5von",
                 "ALL_IN"        => "100",
                 "STRONG_BUY"    => "150",
                 "BUY"           => "200",
@@ -71,7 +71,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/NOK5L-7-26CZB.php",
+                "SHARE"         => "warrants/NOK5L-7-26CZB",
                 "ALL_IN"        => "0.45",
                 "STRONG_BUY"    => "0.55",
                 "BUY"           => "0.65",
