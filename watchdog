@@ -68,7 +68,10 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_highest  			= $matches[0][8];
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][5];
+
                 }
+
+		// print_r($matches);
 
 		// Test if the market is open
 		if(count($matches[0]) <= 4) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
