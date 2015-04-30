@@ -52,11 +52,11 @@ for ($x = 0; $x <= 10000; $x++) {
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start    			= '0';
-                        if(isset($matches[0][4])) $current      = $matches[0][4];
+                        if(isset($matches[0][4])) $current      = $matches[0][8];
                         $today_lowest   			= '0';
                         $today_highest  			= '0';
-			$sell_now				= $matches[0][3];
-                        $buy_now       				= $matches[0][2];
+			$sell_now				= $matches[0][4];
+                        $buy_now       				= $matches[0][3];
 
                 } else {
 
