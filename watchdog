@@ -58,6 +58,20 @@ for ($x = 0; $x <= 10000; $x++) {
 			$sell_now				= $matches[0][4];
                         $buy_now       				= $matches[0][3];
 
+		}
+                
+		// Special cases
+                elseif($engine == 2) {
+
+                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
+
+                        $today_start                            = $matches[0][5];
+                        if(isset($matches[0][4])) $current      = $matches[0][8];
+                        $today_lowest                           = $matches[0][7];
+                        $today_highest                          = $matches[0][6];
+                        $sell_now                               = $matches[0][4];
+                        $buy_now                                = $matches[0][3];
+
                 } else {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);

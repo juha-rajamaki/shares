@@ -1,0 +1,4 @@
+<?php
+        $title 	= 'BULL NOKIA X5C';
+        $url 	= 'https://www.netfonds.no/quotes/ppaper.php?paper=BULL-NOKIA-X5-C.NGM';
+	$engine = '2';
