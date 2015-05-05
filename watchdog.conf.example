@@ -4,4 +4,4 @@
 */
 
 $wait                           	= 30;	// time to wait beween upgrading the data, default 30 seconds
-$changes_length_max					= 10;	// the maximum size of last changes cumulated on the last row
+$changes_length_max			= 20;	// the maximum size of last changes cumulated on the last row

@@ -166,7 +166,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         }
                 }
 
-                // Get the last changes from collector and colorize. 
+                // Get the last x changes from collector and colorize. 
 
                 $collector_printout     = substr($collector_printout, -$changes_length_max);
                 $downs                  = substr_count($collector_printout, 'D');
