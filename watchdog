@@ -1,8 +1,10 @@
 <?php
 /*
+
 	WatchDog program for timing your buy's and sell's
 	Written by borre 2015
-	Open Source - please free to use and contribute. :)
+	Open Source - please free to use, share and contribute.
+
 */
 
 	ini_set('display_errors', 0);
@@ -159,10 +161,16 @@ for ($x = 0; $x <= 10000; $x++) {
                 $collector_printout = '';
                 if(isset($collector["".$share.""])) {
                         foreach($collector["".$share.""]['price_direction'] as $value) {
-                                if($value == 'U') { $collector_printout .= "".chr(27)."[1;32m#". chr(27) . "[0m".""; }
-                                if($value == 'D') { $collector_printout .= "".chr(27)."[1;33m#". chr(27) . "[0m".""; }
+                                if($value == 'U') { $collector_printout .= "U"; }
+                                if($value == 'D') { $collector_printout .= "D"; }
                         }
                 }
+
+                // Get the last changes from collector and colorize
+
+                $collector_printout = substr($collector_printout, -$changes_length_max);
+                $collector_printout = str_replace('D', "".chr(27)."[1;33m#". chr(27) . "[0m"."", $collector_printout);
+                $collector_printout = str_replace('U', "".chr(27)."[1;32m#". chr(27) . "[0m"."", $collector_printout);
 
 		// Screen print out
 

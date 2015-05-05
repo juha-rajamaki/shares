@@ -3,6 +3,5 @@
 	Configure the watchdog!
 */
 
-
-#	 Time to wait beween upgrading the data, default 30 seconds
-$wait                           = 30;
+$wait                           	= 30;	// time to wait beween upgrading the data, default 30 seconds
+$changes_length_max					= 10;	// the maximum size of last changes cumulated on the last row
