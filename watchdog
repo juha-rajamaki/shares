@@ -31,7 +31,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY    START   LOW     HIGH    AVG     BUY     SELL    NOW     DIR     TODAY     VOL   INSTRUMENT\n";
+	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    NOW    DIR     TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -177,9 +177,9 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Screen print out
 
 		$printout = '';
-		$printout .= "$status $today_start$space_start $today_lowest$space_low $today_highest$space_high ";
+		$printout .= "$status  $today_start$space_start $today_lowest$space_low $today_highest$space_high ";
 		$printout .= "$today_average$space_avg$buy_now$space_buy_now $sell_now$space_sell_now ";
-		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur  ";
+		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 
                 if($ups > $downs) {     $printout .= "".chr(27)."[1;32mUP    ". chr(27) . "[0m".""; }
                 elseif($downs > $ups) { $printout .= "".chr(27)."[1;33mDOWN  ". chr(27) . "[0m".""; }
