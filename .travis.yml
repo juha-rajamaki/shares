@@ -5,4 +5,7 @@ php:
   - "5.4"
   - "5.3"
 
-script: chmod a+x ./make.sh
+before_script:
+ - chmod +x make.sh
+
+script: sh make.sh
