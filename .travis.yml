@@ -1,6 +1,5 @@
 language: php
-
 php:
   - "5.3"
-
-script: chmod a+x .make.sh
+  - "5.4"
+script: sh make.sh
