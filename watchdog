@@ -177,7 +177,14 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Screen print out
 
 		$printout = '';
-		$printout .= "$status  $today_start$space_start $today_lowest$space_low $today_highest$space_high ";
+		$printout .= "$status  $today_start$space_start ";
+
+		if($current == $today_lowest) { $today_lowest = "".chr(27) . "[41m" ."$today_lowest". chr(27) . "[0m".""; }
+                $printout .= "$today_lowest$space_low ";
+
+                if($current == $today_highest) { $today_highest = "".chr(27) . "[42m" ."$today_highest". chr(27) . "[0m".""; }
+		$printout .= "$today_highest$space_high ";
+
 		$printout .= "$today_average$space_avg$buy_now$space_buy_now $sell_now$space_sell_now ";
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 
