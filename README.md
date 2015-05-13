@@ -1,4 +1,4 @@
-# App for tracking Oil, gold, Dax etc. share prices in real time
+# App for tracking Oil, Gold, Dax etc. share prices in real time
 
 
 ### Example usage to track certain share
@@ -10,3 +10,13 @@ php run certfificate/bullolja
 2. run the program :
 
 php watchdog
+
+
+## Licence
+
+The MIT License
+
+
+## Author
+
+Juha Rajamäki (@juha-rajamaki)
