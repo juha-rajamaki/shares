@@ -1,7 +1,7 @@
 # App for tracking Oil, gold, Dax etc. share prices in real time
 
 
-### Example usage for certain share
+### Example usage to track certain share
 php run certfificate/bullolja
 
 
