@@ -82,8 +82,8 @@ for ($x = 0; $x <= 10000; $x++) {
                         $current        			= $matches[0][0];
                         $today_lowest   			= $matches[0][9];
                         $today_highest  			= $matches[0][8];
-                        $sell_now                               = $matches[0][4];
-                        $buy_now                                = $matches[0][5];
+                        $sell_now                               = $matches[0][5];
+                        $buy_now                                = $matches[0][4];
 
                 }
 
