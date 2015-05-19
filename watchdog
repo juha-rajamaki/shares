@@ -62,7 +62,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		}
                 
-		// Special cases
+		// BULL YIT, BULL Nokia
                 elseif($engine == 2) {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
@@ -87,7 +87,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 }
 
-		// print_r($matches);
+//		print_r($matches);
 
 		// Test if the market is open
 		if(count($matches[0]) <= 4) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }

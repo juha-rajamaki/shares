@@ -1,0 +1,4 @@
+<?php
+        $title 	= 'BULL YIT X3 C2';
+        $url 	= 'https://www.netfonds.no/quotes/ppaper.php?paper=BULL-YIT-X3-C-2.NGM';
+	$engine = '2';

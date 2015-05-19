@@ -71,13 +71,21 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/NOK5L-7-26CZB",
-                "ALL_IN"        => "0.45",
-                "STRONG_BUY"    => "0.55",
-                "BUY"           => "0.65",
-                "SELL"          => "0.95",
-                "STRONG_SELL"   => "1.20",
+                "SHARE"         => "exchange-trade-notes/bullyit-x3-c2",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "2",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "5",
         ),
 
+        array(
+                "SHARE"         => "exchange-trade-notes/bullnordea-x5-von",
+                "ALL_IN"        => "100",
+                "STRONG_BUY"    => "150",
+                "BUY"           => "200",
+                "SELL"          => "300",
+                "STRONG_SELL"   => "350",
+        ),
 
 );
