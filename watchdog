@@ -31,7 +31,7 @@
 for ($x = 0; $x <= 10000; $x++) {
 
         echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    NOW    DIR     TODAY     VOL   INSTRUMENT\n";
+	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR     TODAY     VOL   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -101,7 +101,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_high             = str_repeat(' ', (7-strlen($today_highest)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
                 $space_cur              = str_repeat(' ', (6-strlen($current)));
-                $space_dir              = str_repeat(' ', (6-strlen($today_direction)));
+                $space_dir              = str_repeat(' ', (7-strlen($today_direction)));
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
 		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
 		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
