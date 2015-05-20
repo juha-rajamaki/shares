@@ -100,7 +100,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_low              = str_repeat(' ', (7-strlen($today_lowest)));
                 $space_high             = str_repeat(' ', (7-strlen($today_highest)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
-                $space_cur              = str_repeat(' ', (6-strlen($current)));
+                $space_cur              = str_repeat(' ', (7-strlen($current)));
                 $space_dir              = str_repeat(' ', (7-strlen($today_direction)));
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
 		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
