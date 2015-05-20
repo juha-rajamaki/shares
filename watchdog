@@ -68,7 +68,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start                            = $matches[0][5];
-                        if(isset($matches[0][4])) $current      = $matches[0][8];
+                        $current      				= $matches[0][0];
                         $today_lowest                           = $matches[0][7];
                         $today_highest                          = $matches[0][6];
                         $sell_now                               = $matches[0][4];
@@ -87,7 +87,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 }
 
-//		print_r($matches);
+		// print_r($matches);
 
 		// Test if the market is open
 		if(count($matches[0]) <= 4) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
