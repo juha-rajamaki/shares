@@ -68,11 +68,15 @@ for ($x = 0; $x <= 10000; $x++) {
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start                            = $matches[0][5];
-                        $current      				= $matches[0][8]; // 0 -> 8
+                        $current      				= $matches[0][8];
                         $today_lowest                           = $matches[0][7];
                         $today_highest                          = $matches[0][6];
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][3];
+
+                        // if exchange is not open
+                        if(count($matches[0]) == 6) { $current  = $matches[0][5]; }
+
 		}
 
 		// BULL NORDEA
@@ -103,7 +107,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 }
 
-	// 	print_r($matches);
+//	 	print_r($matches);
 
 		// Test if the market is open
 		if(count($matches[0]) <= 1) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
