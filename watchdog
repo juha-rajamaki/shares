@@ -96,7 +96,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
                         $today_start    			= $matches[0][7];
-                        $current        			= $matches[0][10];
+                        $current        			= $matches[0][0]; // 10 -> 0 
                         $today_lowest   			= $matches[0][9];
                         $today_highest  			= $matches[0][8];
                         $sell_now                               = $matches[0][5];
