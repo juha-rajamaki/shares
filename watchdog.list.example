@@ -12,19 +12,10 @@ $watchlist = array(
                 "ALL_IN"        => "0.3",
                 "STRONG_BUY"    => "0.7",
 		"BUY" 		=> "0.95",
-		"SELL" 		=> "1.15",
+		"SELL" 		=> "1.35",
 		"STRONG_SELL" 	=> "1.50",
 	),
-/*
-        array(
-                "SHARE"         => "shares/bullolja-x5s",
-                "ALL_IN"        => "1",
-                "STRONG_BUY"    => "1.5",
-                "BUY"           => "2",
-                "SELL"          => "3.5",
-                "STRONG_SELL"   => "5",
-        ),
-*/
+
         array(
                 "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz",
                 "ALL_IN"        => "0.3",
