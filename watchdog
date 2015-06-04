@@ -152,7 +152,9 @@ for ($x = 0; $x <= 10000; $x++) {
 		else { die('error: status'); }
 
 		// Now colorizer
-	        if($current == $today_start) { $now_color = "[40m";	
+	        if($current == $today_start) { $now_color = "[40m";
+                        } elseif ($current == 0) {
+				$now_color = "[40m";
 			} elseif ($current > $today_start) {
         	        	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
         		} elseif ($current < $today_start) {
@@ -218,7 +220,7 @@ for ($x = 0; $x <= 10000; $x++) {
                 if($current == $today_highest) { $today_highest = "".chr(27) . "[42m" ."$today_highest". chr(27) . "[0m".""; }
 		$printout .= "$today_highest$space_high ";
 
-		if($today_average == 0) { $today_average = "-"; }
+		if($today_average == 0) { $today_average = " "; }
 		$printout .= "$today_average$space_avg$buy_now$space_buy_now $sell_now$space_sell_now ";
 		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
 
