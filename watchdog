@@ -98,6 +98,8 @@ for ($x = 0; $x <= 10000; $x++) {
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][3];
 
+                        if(count($matches[0]) == 2) { $current  = "-"; }
+
                 } else {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
@@ -111,6 +113,8 @@ for ($x = 0; $x <= 10000; $x++) {
 
 			// if exchange is not open
 			if(count($matches[0]) == 3) { $current  = $matches[0][2]; } 
+                        if(count($matches[0]) == 2) { $current  = "-"; }
+                        if(count($matches[0]) == 0) { $current  = "-"; }
 
                 }
 
@@ -137,8 +141,9 @@ for ($x = 0; $x <= 10000; $x++) {
 		$space_url		= str_repeat(' ', (70-strlen($url)));
 
 		// Strategy indicator
-		$status = "";		
-		if($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
+		$status = "";
+		if($current == "-") { $status = "".chr(27) . "[40m" ."-          ". chr(27) . "[0m".""; }
+		elseif($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
                 elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
                 elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
