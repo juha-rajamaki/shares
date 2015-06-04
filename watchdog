@@ -117,7 +117,7 @@ for ($x = 0; $x <= 10000; $x++) {
 //	 	print_r($matches);
 
 		// Test if the market is open
-		if(count($matches[0]) <= 1) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
+//		if(count($matches[0]) <= 1) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
 
 
                 $today_average  				= round(($today_lowest+$today_highest)/2, 2);
