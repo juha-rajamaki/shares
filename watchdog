@@ -81,6 +81,8 @@ for ($x = 0; $x <= 10000; $x++) {
                         	$buy_now                        = $matches[0][2];
 			}
 
+                        if(count($matches[0]) == 0) { $current  = "-"; }
+
 			// Match fix 2
                         if(count($matches[0]) == 6) { $current  = $matches[0][5]; }
 
@@ -98,6 +100,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][3];
 
+                        if(count($matches[0]) == 0) { $current  = "-"; }
                         if(count($matches[0]) == 2) { $current  = "-"; }
 
                 } else {
@@ -111,7 +114,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         $sell_now                               = $matches[0][5];
                         $buy_now                                = $matches[0][4];
 
-			// if exchange is not open
+			// Matching fixes
 			if(count($matches[0]) == 3) { $current  = $matches[0][2]; } 
                         if(count($matches[0]) == 2) { $current  = "-"; }
                         if(count($matches[0]) == 0) { $current  = "-"; }
