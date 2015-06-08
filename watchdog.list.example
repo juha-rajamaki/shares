@@ -45,20 +45,20 @@ $watchlist = array(
 
         array(
                 "SHARE"         => "exchange-trade-notes/bulldax-x15sg",
-		"ALL_IN"	=> "2",
-                "STRONG_BUY"    => "3",
-                "BUY"           => "10.5",
-                "SELL"          => "15",
-                "STRONG_SELL"   => "20",
+		"ALL_IN"	=> "0.5",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "5",
+                "SELL"          => "10",
+                "STRONG_SELL"   => "15",
         ),
 
         array(
                 "SHARE"         => "exchange-trade-notes/bulldax-x18-von2",
-                "ALL_IN"        => "2",
-                "STRONG_BUY"    => "5",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "2",
                 "BUY"           => "11",
-                "SELL"          => "15",
-                "STRONG_SELL"   => "17.5",
+                "SELL"          => "20",
+                "STRONG_SELL"   => "35",
         ),
 
         array(
