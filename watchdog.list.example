@@ -63,7 +63,7 @@ $watchlist = array(
 
         array(
                 "SHARE"         => "exchange-trade-notes/bullnokiax5c",
-                "ALL_IN"        => "2",
+                "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "3",
                 "BUY"           => "5",
                 "SELL"          => "7.5",
