@@ -133,4 +133,14 @@ $watchlist = array(
                 "STRONG_SELL"   => "5",
         ),
 
+        array(
+                "SHARE"         => "exchange-trade-notes/bullgoogle-x3c",
+                "ALL_IN"        => "100",
+                "STRONG_BUY"    => "220",
+                "BUY"           => "250",
+                "SELL"          => "300",
+                "STRONG_SELL"   => "350",
+        ),
+
+
 );
