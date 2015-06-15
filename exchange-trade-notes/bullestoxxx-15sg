@@ -1,0 +1,3 @@
+<?php
+        $title 	= 'EURO STOXX X15 SG';
+        $url 	= 'https://www.netfonds.no/charts/ppaper.php?paper=BULL-ESTOXXX15SG.NGM';
