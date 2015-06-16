@@ -1,4 +1,4 @@
 <?php
-        $title 	= 'BULL NOK. RENKAAT X3 C';
+        $title 	= 'BULL NOK. RENKAAT X3C';
         $url 	= 'https://www.netfonds.no/quotes/ppaper.php?paper=BULL-NRE-X3-C.NGM';
 	$engine = '2';
