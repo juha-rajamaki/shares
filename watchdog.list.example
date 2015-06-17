@@ -88,7 +88,7 @@ $watchlist = array(
                 "SELL"          => "20",
                 "STRONG_SELL"   => "35",
         ),
-
+/*
         array(
                 "SHARE"         => "exchange-trade-notes/beardax-x15-sg",
                 "ALL_IN"        => "0",
@@ -97,12 +97,12 @@ $watchlist = array(
                 "SELL"          => "0.02",
                 "STRONG_SELL"   => "0.03",
         ),
-
+*/
         array(
                 "SHARE"         => "exchange-trade-notes/beardax-x18-von",
                 "ALL_IN"        => "3.5",
-                "STRONG_BUY"    => "5",
-                "BUY"           => "7",
+                "STRONG_BUY"    => "4.5",
+                "BUY"           => "6",
                 "SELL"          => "10",
                 "STRONG_SELL"   => "12",
         ),
