@@ -35,6 +35,15 @@ $watchlist = array(
         ),
 
         array(
+                "SHARE"         => "exchange-trade-notes/bullgild-x5-von",
+                "ALL_IN"        => "50",
+                "STRONG_BUY"    => "75",
+                "BUY"           => "100",
+                "SELL"          => "130",
+                "STRONG_SELL"   => "150",
+        ),
+
+        array(
                 "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg",
                 "ALL_IN"    	=> "10",
                 "STRONG_BUY" 	=> "100",
