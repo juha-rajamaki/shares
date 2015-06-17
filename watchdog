@@ -120,7 +120,7 @@ for ($x = 0; $x <= 10000; $x++) {
 				$buy_now        = $matches[0][3];
 			}
 
-			if(count($matches[0]) == 8) { $today_start  = '-'; }
+// bull gild fix	if(count($matches[0]) == 8) { $today_start  = '-'; }
 			if(count($matches[0]) == 3) { $current  = $matches[0][2]; } 
                         if(count($matches[0]) == 2) { $current  = "-";  }
                         if(count($matches[0]) == 0) { $current  = "-";  }
