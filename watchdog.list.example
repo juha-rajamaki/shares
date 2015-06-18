@@ -8,7 +8,7 @@
 $watchlist = array(
 
 	array(
-		"SHARE" 	=> "certificates/bullolja-x5c",
+		"SHARE" 	=> "certificates/bull-olja-x5c",
                 "ALL_IN"        => "0.3",
                 "STRONG_BUY"    => "0.7",
 		"BUY" 		=> "0.95",
@@ -17,7 +17,7 @@ $watchlist = array(
 	),
 
         array(
-                "SHARE" 	=> "exchange-trade-notes/bullseadrill-x3-cz",
+                "SHARE" 	=> "exchange-trade-notes/bull-seadrill-x3-cz",
                 "ALL_IN"        => "0.3",
                 "STRONG_BUY" 	=> "0.7",
                 "BUY" 		=> "0.95",
@@ -26,7 +26,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullgas-x5c",
+                "SHARE"         => "exchange-trade-notes/bull-gas-x5c",
                 "ALL_IN"        => "0.35",
                 "STRONG_BUY"    => "0.5",
                 "BUY"           => "0.75",
@@ -35,7 +35,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullgild-x5-von",
+                "SHARE"         => "exchange-trade-notes/bull-gild-x5-von",
                 "ALL_IN"        => "50",
                 "STRONG_BUY"    => "75",
                 "BUY"           => "100",
@@ -44,7 +44,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullsilver-x4c",
+                "SHARE"         => "exchange-trade-notes/bull-silver-x4c",
                 "ALL_IN"        => ".3",
                 "STRONG_BUY"    => "0.5",
                 "BUY"           => "0.6",
@@ -53,7 +53,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullkoppar-x4c",
+                "SHARE"         => "exchange-trade-notes/bull-koppar-x4c",
                 "ALL_IN"        => "3",
                 "STRONG_BUY"    => "4",
                 "BUY"           => "4.5",
@@ -62,7 +62,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE" 	=> "exchange-trade-notes/bullomx-x15-sg",
+                "SHARE" 	=> "exchange-trade-notes/bull-omx-x15-sg",
                 "ALL_IN"    	=> "10",
                 "STRONG_BUY" 	=> "100",
                 "BUY" 		=> "270",
@@ -71,7 +71,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullomx-x18-von2",
+                "SHARE"         => "exchange-trade-notes/bull-omx-x18-von2",
                 "ALL_IN"        => "1",
                 "STRONG_BUY"    => "2.5",
                 "BUY"           => "7",
@@ -80,7 +80,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bearomx-x15-sg2",
+                "SHARE"         => "exchange-trade-notes/bear-omx-x15-sg2",
                 "ALL_IN"        => "0.5",
                 "STRONG_BUY"    => "0.9",
                 "BUY"           => "1",
@@ -89,7 +89,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullestoxxx-15sg",
+                "SHARE"         => "exchange-trade-notes/bull-estoxxx-15sg",
                 "ALL_IN"        => "1",
                 "STRONG_BUY"    => "3",
                 "BUY"           => "6",
@@ -99,7 +99,7 @@ $watchlist = array(
 
 
         array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x15sg",
+                "SHARE"         => "exchange-trade-notes/bull-dax-x15sg",
 		"ALL_IN"	=> "0.5",
                 "STRONG_BUY"    => "1.5",
                 "BUY"           => "5",
@@ -108,7 +108,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bulldax-x18-von2",
+                "SHARE"         => "exchange-trade-notes/bull-dax-x18-von2",
                 "ALL_IN"        => "1",
                 "STRONG_BUY"    => "2",
                 "BUY"           => "11",
@@ -117,7 +117,7 @@ $watchlist = array(
         ),
 /*
         array(
-                "SHARE"         => "exchange-trade-notes/beardax-x15-sg",
+                "SHARE"         => "exchange-trade-notes/bear-dax-x15-sg",
                 "ALL_IN"        => "0",
                 "STRONG_BUY"    => "0",
                 "BUY"           => "0.01",
@@ -126,7 +126,7 @@ $watchlist = array(
         ),
 */
         array(
-                "SHARE"         => "exchange-trade-notes/beardax-x18-von",
+                "SHARE"         => "exchange-trade-notes/bear-dax-x18-von",
                 "ALL_IN"        => "3.5",
                 "STRONG_BUY"    => "4.5",
                 "BUY"           => "6",
@@ -135,7 +135,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullnokiax5c",
+                "SHARE"         => "exchange-trade-notes/bull-nokiax5c",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "3",
                 "BUY"           => "5",
@@ -144,7 +144,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullyit-x3-c2",
+                "SHARE"         => "exchange-trade-notes/bull-yit-x3-c2",
                 "ALL_IN"        => "1",
                 "STRONG_BUY"    => "1.5",
                 "BUY"           => "2",
@@ -153,7 +153,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullnordea-x5-von",
+                "SHARE"         => "exchange-trade-notes/bull-nordea-x5-von",
                 "ALL_IN"        => "100",
                 "STRONG_BUY"    => "150",
                 "BUY"           => "200",
@@ -162,7 +162,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullnre-x3-c",
+                "SHARE"         => "exchange-trade-notes/bull-nre-x3-c",
                 "ALL_IN"        => "1.2",
                 "STRONG_BUY"    => "1.5",
                 "BUY"           => "2.5",
@@ -171,13 +171,12 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bullgoogle-x3c",
+                "SHARE"         => "exchange-trade-notes/bull-google-x3c",
                 "ALL_IN"        => "100",
                 "STRONG_BUY"    => "220",
                 "BUY"           => "250",
                 "SELL"          => "300",
                 "STRONG_SELL"   => "350",
         ),
-
 
 );
