@@ -120,7 +120,6 @@ for ($x = 0; $x <= 10000; $x++) {
 				$buy_now        = $matches[0][3];
 			}
 
-// bull gild fix	if(count($matches[0]) == 8) { $today_start  = '-'; }
 			if(count($matches[0]) == 3) { $current  = $matches[0][2]; } 
                         if(count($matches[0]) == 2) { $current  = "-";  }
                         if(count($matches[0]) == 0) { $current  = "-";  }
@@ -146,7 +145,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
 		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
 		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
-                $space_title       	= str_repeat(' ', (25-strlen($title)));
+                $space_title       	= str_repeat(' ', (29-strlen($title)));
 		$space_url		= str_repeat(' ', (70-strlen($url)));
 
 		// Strategy indicator
