@@ -12,7 +12,7 @@
 
 	ini_alter('date.timezone','Europe/Helsinki');
 
-	$time                            = date('d.m.Y H:i:s');
+	$time                           = date('d.m.Y H:i:s');
         $showtext 			= '';
 	$last_change 			= '';
 	$last_change_show		= array();
@@ -243,6 +243,9 @@ for ($x = 0; $x <= 10000; $x++) {
                 $printout .= "$url$space_url ";
 		$printout .= "$collector_printout";
 		if($last_change_show) { $printout .= " $last_change_show"; }
+
+//		if($buy_now < $sell_now) { $printout .= "".chr(27)."[1;33mCRASH?  ". chr(27) . "[0m".""; }
+
 		$printout .= "\n";
 
 		echo "$printout";
@@ -252,6 +255,11 @@ for ($x = 0; $x <= 10000; $x++) {
 		$now_color = '';		// reset now color
 
 	endforeach;
+
+	// Play exchange opening & closing bells
+
+        $checktime                      = date('hi', time());
+        if($checktime == "1000" || $checktime == "0630") { echo exec('mplayer opening_bell.mp3'); }
 
 	// Timeout
 
