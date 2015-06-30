@@ -146,7 +146,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
 		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
                 $space_title       	= str_repeat(' ', (29-strlen($title)));
-		$space_url		= str_repeat(' ', (70-strlen($url)));
+		$space_url		= str_repeat(' ', (77-strlen($url)));
 
 		// Strategy indicator
 		$status = "";
@@ -259,9 +259,9 @@ for ($x = 0; $x <= 10000; $x++) {
 	// Play exchange opening & closing bells
 
         $checktime                      = date('hi', time());
-        if($checktime == "1000" || $checktime == "0630") { echo exec('mplayer opening_bell.mp3'); }
+        if($checktime == "1000") { echo "\nHelsinki exchange is now open\n"; echo exec('mplayer opening_bell.mp3'); }
+        if($checktime == "0630") { echo "\nHelsinki exchange is now closed\n"; echo exec('mplayer opening_bell.mp3'); }
         if($checktime == "0430") { echo "\nNew York exchange is now open\n"; echo exec('mplayer opening_bell.mp3'); }
-//	print_r($checktime);
 
 
 	// Timeout

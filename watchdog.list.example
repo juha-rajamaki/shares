@@ -124,18 +124,18 @@ $watchlist = array(
                 "SELL"          => "20",
                 "STRONG_SELL"   => "35",
         ),
-/*
-        array(
-                "SHARE"         => "exchange-trade-notes/bear-dax-x15-sg",
-                "ALL_IN"        => "0",
-                "STRONG_BUY"    => "0",
-                "BUY"           => "0.01",
-                "SELL"          => "0.02",
-                "STRONG_SELL"   => "0.03",
-        ),
-*/
+
         array(
                 "SHARE"         => "exchange-trade-notes/bear-dax-x18-von",
+                "ALL_IN"        => "3.5",
+                "STRONG_BUY"    => "4.5",
+                "BUY"           => "6",
+                "SELL"          => "10",
+                "STRONG_SELL"   => "12",
+        ),
+
+        array(
+                "SHARE"         => "warrants/T-LONGDAX-BNP62",
                 "ALL_IN"        => "3.5",
                 "STRONG_BUY"    => "4.5",
                 "BUY"           => "6",
