@@ -260,6 +260,9 @@ for ($x = 0; $x <= 10000; $x++) {
 
         $checktime                      = date('hi', time());
         if($checktime == "1000" || $checktime == "0630") { echo exec('mplayer opening_bell.mp3'); }
+        if($checktime == "0430") { echo "\nNew York exchange is now open\n"; echo exec('mplayer opening_bell.mp3'); }
+//	print_r($checktime);
+
 
 	// Timeout
 
