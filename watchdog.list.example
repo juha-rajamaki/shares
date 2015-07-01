@@ -135,12 +135,21 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/T-LONGDAX-BNP62",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
+                "SHARE"         => "warrants/T-LONGDAX-HF-CG",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "1.8",
+                "BUY"           => "2",
                 "SELL"          => "3",
-                "STRONG_SELL"   => "3.5",
+                "STRONG_SELL"   => "10",
+        ),
+
+        array(
+                "SHARE"         => "warrants/T-LONGDAX-BNP62",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "1.8",
+                "BUY"           => "2",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "10",
         ),
 
         array(
