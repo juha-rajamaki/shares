@@ -161,6 +161,14 @@ $watchlist = array(
                 "STRONG_SELL"   => "3.5",
         ),
 
+        array(
+                "SHARE"         => "warrants/T-SHORTDAX-BNP67",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "2",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "4",
+        ),
 
         array(
                 "SHARE"         => "exchange-trade-notes/bull-nokiax5c",
