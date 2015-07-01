@@ -244,7 +244,8 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$collector_printout ";
 		if($last_change_show) { $printout .= " $last_change_show"; }
 
-                if(isset($knock)) { $printout .= "$knock"; $knock = ''; }
+		// set the knock out value if available
+                if(isset($knock) && $knock != '0') { $printout .= " : $knock"; $knock = '0'; }
 
 		$printout .= "\n";
 		echo "$printout";
