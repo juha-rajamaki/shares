@@ -241,11 +241,12 @@ for ($x = 0; $x <= 10000; $x++) {
 		$printout .= "$title$space_title ";
 
                 $printout .= "$url$space_url ";
+
+                // set the knock out value if available
+                if(isset($knock) && $knock != '0') { $printout .= "@ $knock "; $knock = '0'; }
+
 		$printout .= "$collector_printout ";
 		if($last_change_show) { $printout .= " $last_change_show"; }
-
-		// set the knock out value if available
-                if(isset($knock) && $knock != '0') { $printout .= " : $knock"; $knock = '0'; }
 
 		$printout .= "\n";
 		echo "$printout";
