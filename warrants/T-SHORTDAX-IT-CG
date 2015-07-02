@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'T-SHORTDAX-IT-CG';
+	$knock		= '11 298,73';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=T-SHORTDAX-IT-CG&exchange=NGM';
+	$engine 	= '2';
