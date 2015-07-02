@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'T-SHORTDAX-BNP68';
+	$knock		= '11 447,85';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=T-SHORTDAX-BNP68&exchange=NGM';
+	$engine 	= '2';

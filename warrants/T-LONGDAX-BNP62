@@ -1,5 +1,5 @@
 <?php
         $title 		= 'T-LONGDAX-BNP62';
-	$knock		= '10 787,13';
+	$knock		= '10 787,15';
         $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=T-LONGDAX-BNP62&exchange=NGM';
 	$engine 	= '2';

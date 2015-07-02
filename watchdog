@@ -22,13 +22,14 @@
         require_once('doge.ascii');
         print_r($doge);
         require_once('watchdog.conf.example');
-        include_once('watchdog.conf');
 	require_once('watchdog.list.example');
-        include_once('watchdog.list');
 
 	sleep(1);
 
 for ($x = 0; $x <= 10000; $x++) {
+
+        include('watchdog.conf');
+        include('watchdog.list');
 
         echo "Watch Dog run started @ $time \n\n";
 	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   INSTRUMENT\n";

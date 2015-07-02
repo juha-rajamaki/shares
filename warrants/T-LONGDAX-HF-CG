@@ -1,5 +1,5 @@
 <?php
         $title 		= 'T-LONGDAX-HF-CG';
-	$knock		= 'DUNNO';
+	$knock		= '10 814,66';
         $url 		= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-LONGDAX-HF-CG.NGM';
 	$engine 	= '2';
