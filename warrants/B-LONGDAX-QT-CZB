@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'B-LONGDAX-QT-CZB';
+	$knock		= '10 925,42';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=B-LONGDAX-QT-CZB&exchange=NGM';
+	$engine 	= '2';

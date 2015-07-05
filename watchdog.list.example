@@ -135,7 +135,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/T-LONGDAX-BNP62",
+                "SHARE"         => "warrants/B-LONGDAX-QV-CZB",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "2",
                 "BUY"           => "2.5",
@@ -147,7 +147,44 @@ $watchlist = array(
                 "SHARE"         => "warrants/T-LONGDAX-HF-CG",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "2",
+                "BUY"           => "2.5",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "5",
+        ),
+
+
+        array(
+                "SHARE"         => "warrants/T-LONGDAX-BNP62",
+                "ALL_IN"        => "1.5",
+                "STRONG_BUY"    => "2",
+                "BUY"           => "2.5",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "5",
+        ),
+
+        array(
+                "SHARE"         => "warrants/T-LONGDAX-BNP62",
+                "ALL_IN"        => "1.5",
+                "STRONG_BUY"    => "2",
                 "BUY"           => "2",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "5",
+        ),
+
+        array(
+                "SHARE"         => "warrants/B-SHORTDAX-PG-CZB",
+                "ALL_IN"        => "1.5",
+                "STRONG_BUY"    => "2",
+                "BUY"           => "2.5",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "3.5",
+        ),
+
+        array(
+                "SHARE"         => "warrants/T-SHORTDAX-IT-CG",
+                "ALL_IN"        => "1.5",
+                "STRONG_BUY"    => "2",
+                "BUY"           => "2.5",
                 "SELL"          => "3",
                 "STRONG_SELL"   => "5",
         ),
@@ -163,15 +200,6 @@ $watchlist = array(
 
         array(
                 "SHARE"         => "warrants/T-SHORTDAX-BNP68",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
-                "SELL"          => "3",
-                "STRONG_SELL"   => "5",
-        ),
-
-        array(
-                "SHARE"         => "warrants/T-SHORTDAX-IT-CG",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "2",
                 "BUY"           => "2.5",
