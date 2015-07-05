@@ -32,7 +32,7 @@ for ($x = 0; $x <= 10000; $x++) {
         include('watchdog.list');
 
         echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   INSTRUMENT\n";
+	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   TRADES   INSTRUMENT\n";
 
 	foreach($watchlist as $item):
 
@@ -46,12 +46,17 @@ for ($x = 0; $x <= 10000; $x++) {
         	curl_setopt($curl, CURLOPT_HEADER, false);
 
         	$data = curl_exec($curl);
+		
+		// Clean up the white spaces from data for better matching
+                $data = str_replace(" ", "", $data);
 
+		// find rows from data
                 preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
 
 		// Warrants
                 if($engine == 1) {
 
+			// Get decimals
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start    			= '0';
@@ -61,9 +66,11 @@ for ($x = 0; $x <= 10000; $x++) {
 			$sell_now				= $matches[0][4];
                         $buy_now       				= $matches[0][3];
 
+                        $today_trades   = 'Xxx';
+
 		}
                 
-		// BULL YIT, BULL Nokia, BULL NRE
+		// BULL YIT, BULL Nokia
                 elseif($engine == 2) {
 
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
@@ -89,9 +96,16 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		}
 
-		// BULL NORDEA
+		// BULL NORDEA, NOKIAN RENKAAT
                 elseif($engine == 3) {
 
+/*	TODO numbers matching
+                        // Get numbers
+                        preg_match_all('/([0-9]+)/', $matches[0][14], $matches_numbers);
+                        $count          = count($matches_numbers[0])-1;
+                        $today_trades   = $matches_numbers[0][$count];
+*/
+			// Get Decimals
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
                         $today_start                            = $matches[0][7];
@@ -104,8 +118,16 @@ for ($x = 0; $x <= 10000; $x++) {
                         if(count($matches[0]) == 0) { $current  = "-"; }
                         if(count($matches[0]) == 2) { $current  = "-"; }
 
+			$today_trades   = '';
+
                 } else {
 
+                        // Get numbers
+                        preg_match_all('/([0-9]+)/', $matches[0][14], $matches_numbers);
+	                $count 		= count($matches_numbers[0])-1;
+        	        $today_trades 	= $matches_numbers[0][$count];
+
+			// Get decimals (note! : overwriting)
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
 
                         $today_start    			= $matches[0][7];
@@ -127,12 +149,6 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 }
 
-//	 	print_r($matches);
-
-		// Test if the market is open
-//		if(count($matches[0]) <= 1) { die("\nExiting: Nordic Growth Market open times : http://www.ngm.se/handel-2/?lang=en\n\n"); exit; }
-
-
                 $today_average  				= round(($today_lowest+$today_highest)/2, 2);
                 if($today_lowest)  {  	$volatility     	= round(($today_highest/$today_lowest)*100-100, 2); } else { $volatility = 0; }
 		if($today_start)   {	$today_direction	= round(($current/$today_start)*100-100, 2); } else { $today_direction = 0; }
@@ -141,11 +157,12 @@ for ($x = 0; $x <= 10000; $x++) {
                 $space_low              = str_repeat(' ', (7-strlen($today_lowest)));
                 $space_high             = str_repeat(' ', (7-strlen($today_highest)));
                 $space_avg              = str_repeat(' ', (8-strlen($today_average)));
+                $space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
+                $space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
                 $space_cur              = str_repeat(' ', (7-strlen($current)));
                 $space_dir              = str_repeat(' ', (7-strlen($today_direction)));
 		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
-		$space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
-		$space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
+                $space_trades           = str_repeat(' ', (6-strlen($today_trades)));
                 $space_title       	= str_repeat(' ', (29-strlen($title)));
 		$space_url		= str_repeat(' ', (76-strlen($url)));
 
@@ -239,8 +256,8 @@ for ($x = 0; $x <= 10000; $x++) {
 
                 $printout .= "$space_dir$today_direction ";
 		$printout .= "$space_vol$volatility%   ";
+                $printout .= "$space_trades$today_trades   ";
 		$printout .= "$title$space_title ";
-
                 $printout .= "$url$space_url ";
 
                 // set the knock out value if available
@@ -255,6 +272,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		$engine = '';			// reset instrument engine
 		$last_change_show = '';		// reset last change
 		$now_color = '';		// reset now color
+                $today_trades = '';             // reset today trades
 
 	endforeach;
 
