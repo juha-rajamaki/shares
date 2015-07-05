@@ -70,9 +70,15 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		}
                 
-		// BULL YIT, BULL Nokia
+		// BULL Nokia, BULL YIT, BULL Nokian renkaat
                 elseif($engine == 2) {
 
+                        // Get numbers
+                        preg_match_all('/([0-9]+)/', $matches[0][13], $matches_numbers);
+                        $count          = count($matches_numbers[0])-1;
+                        $today_trades   = $matches_numbers[0][$count];
+
+			// Get Decimals
                         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
 
                         $today_start                            = $matches[0][5];
@@ -96,7 +102,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
 		}
 
-		// BULL NORDEA, NOKIAN RENKAAT
+		// BULL NORDEA
                 elseif($engine == 3) {
 
 /*	TODO numbers matching
@@ -118,7 +124,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         if(count($matches[0]) == 0) { $current  = "-"; }
                         if(count($matches[0]) == 2) { $current  = "-"; }
 
-			$today_trades   = '';
+			$today_trades   = '?';
 
                 } else {
 
