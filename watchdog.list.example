@@ -135,24 +135,6 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/B-LONGDAX-QV-CZB",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
-                "SELL"          => "3",
-                "STRONG_SELL"   => "5",
-        ),
-
-        array(
-                "SHARE"         => "warrants/B-LONGDAX-QT-CZB",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
-                "SELL"          => "3",
-                "STRONG_SELL"   => "5",
-        ),
-
-        array(
                 "SHARE"         => "warrants/T-LONGDAX-HF-CG",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "2",
@@ -186,6 +168,15 @@ $watchlist = array(
                 "BUY"           => "2.5",
                 "SELL"          => "3",
                 "STRONG_SELL"   => "5",
+        ),
+
+        array(
+                "SHARE"         => "warrants/B-SHORTDAX-PA-CZB",
+                "ALL_IN"        => "1.5",
+                "STRONG_BUY"    => "2",
+                "BUY"           => "2.5",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "3.5",
         ),
 
         array(
