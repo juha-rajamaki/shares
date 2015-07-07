@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'LONGDAX-D7-CG';
+	$knock		= '10 760,00';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=LONGDAX-D7-CG.NGM';
+	$engine 	= '2';
