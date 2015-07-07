@@ -183,7 +183,7 @@ for ($x = 0; $x <= 10000; $x++) {
 			} elseif ($current > $today_start) {
         	        	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
         		} elseif ($current < $today_start) {
-        		        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[45m"; }
+        		        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
         	} else { die('error:current'); }
 
                 // make last change
