@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'LONGDAX-BNP28 MINIFUTURE 200';
+	$knock		= '10 561,86';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=LONGDAX-BNP28.NGM';
+	$engine 	= '2';

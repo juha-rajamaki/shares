@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'LONGDAX-D5-CG (MINIFUTURE)';
+	$knock		= '10 580,00';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=LONGDAX-D5-CG.NGM';
+	$engine 	= '2';
