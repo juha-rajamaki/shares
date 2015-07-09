@@ -2,7 +2,7 @@
 
 /*
 
-        DaxDoge program getting DAX in real time
+        DaxDuck program getting DAX in real time
         Written by borre 2015
         Open Source - please free to use, share and contribute.
 
@@ -34,12 +34,11 @@
         // Get Decimals
         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[1][1], $matches);
 
-	$dax = $matches[0][0];
+	$dax_now = $matches[0][0];
+	$today_start = '10817';
 
-
-	echo "".$dax."\n";
+	echo "".$dax_now."\n";
 	sleep (1);
-//        system('clear');
 
 } //for
 
