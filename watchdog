@@ -270,6 +270,9 @@ for ($x = 0; $x <= 10000; $x++) {
                 // set the knock out value if available
                 if(isset($knock) && $knock != '0') { $printout .= "@ $knock "; $knock = '0'; }
 
+		// If my price is set
+		if(isset($my_price) && $my_price != '0') { $position = round(($current / $my_price)*100-100, 2); $printout .= "> $position% "; $my_price = '0'; }
+
 		$printout .= "$collector_printout ";
 		if($last_change_show) { $printout .= " $last_change_show"; }
 
