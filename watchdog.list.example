@@ -207,25 +207,7 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "warrants/B-SHORTDAX-PA-CZB",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
-                "SELL"          => "3",
-                "STRONG_SELL"   => "3.5",
-        ),
-
-        array(
-                "SHARE"         => "warrants/T-SHORTDAX-BNP67",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "2",
-                "BUY"           => "2.5",
-                "SELL"          => "3",
-                "STRONG_SELL"   => "3.5",
-        ),
-
-        array(
-                "SHARE"         => "warrants/T-SHORTDAX-BNP68",
+                "SHARE"         => "warrants/T-SHORTDAX-BNP70",
                 "ALL_IN"        => "1.5",
                 "STRONG_BUY"    => "2",
                 "BUY"           => "2.5",
