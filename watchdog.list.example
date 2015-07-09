@@ -216,12 +216,12 @@ $watchlist = array(
         ),
 
         array(
-                "SHARE"         => "exchange-trade-notes/bull-nokiax5c",
-                "ALL_IN"        => "1.5",
-                "STRONG_BUY"    => "3",
-                "BUY"           => "5",
-                "SELL"          => "7.5",
-                "STRONG_SELL"   => "11",
+                "SHARE"         => "warrants/B-LONGNOK-GQ-CZB",
+                "ALL_IN"        => "0.25",
+                "STRONG_BUY"    => "0.5",
+                "BUY"           => "0.75",
+                "SELL"          => "1",
+                "STRONG_SELL"   => "2",
         ),
 
         array(
