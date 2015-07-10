@@ -8,6 +8,8 @@
 
 */
 
+        $today_start = '11216';
+
         ini_set('display_errors', 0);
         error_reporting(E_NOTICE);
         ini_alter('date.timezone','Europe/Helsinki');
@@ -35,9 +37,11 @@
         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[1][1], $matches);
 
 	$dax_now = $matches[0][0];
-	$today_start = '10817';
+	$dax_now = str_replace(".", "", $dax_now);
 
-	echo "".$dax_now."\n";
+	$position = $dax_now-$today_start;
+
+	echo "".$position."\n";
 	sleep (1);
 
 } //for
