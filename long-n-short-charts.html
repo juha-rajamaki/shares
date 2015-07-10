@@ -34,7 +34,7 @@
       setInterval(updateShortChart, 1000);
 
       function updateLongChart() {
-        $.get('http://localhost:9191', function(data) {
+        $.get('http://localhost:9191/?data=long', function(data) {
           drawData(data, chartAll, 'Long period', trendConfigs);
         });
       }
