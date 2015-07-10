@@ -50,7 +50,7 @@ while (true) {
 
         $today = date('Y-m-d');
 
-        file_put_contents("/tmp/$today-dax.log", $positionStr, FILE_APPEND);
+        file_put_contents("tmp/$today-dax.log", $positionStr, FILE_APPEND);
 
         sleep(1);
 
