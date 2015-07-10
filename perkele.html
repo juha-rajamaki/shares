@@ -21,21 +21,29 @@
       var chartAll = new google.visualization.LineChart(document.getElementById('chart-all'));
       var chartShort = new google.visualization.LineChart(document.getElementById('chart-short'));
 
-      setInterval(function() {
-        $.get('http://localhost:9191', function(data) {
-          drawData(data, chartAll, 'Long period', { trendlines: { 0: {
-            type: 'exponential',
-              visibleInLegend: true,
-              color: 'blue'
-          }}});
-        });
-      }, 10000);
+      var trendConfigs = {
+        trendlines: { 0: {
+          color: 'blue'
+        }
+      }};
 
-      setInterval(function() {
+      updateLongChart();
+      updateShortChart();
+
+      setInterval(updateLongChart, 10000);
+      setInterval(updateShortChart, 1000);
+
+      function updateLongChart() {
         $.get('http://localhost:9191', function(data) {
+          drawData(data, chartAll, 'Long period', trendConfigs);
+        });
+      }
+
+      function updateShortChart() {
+        $.get('http://localhost:9191/?data=short', function(data) {
           drawData(_.takeRight(data, 300), chartShort, 'Short period - 5 minutes');
         });
-      }, 1000);
+      }
     });
 
     function drawData(values, chart, title, extraOptions) {
@@ -63,17 +71,16 @@
           maxValue = value;
         }
 
-        arr.push([ i / 60, value ]);
+        arr.push([ i, value ]);
       });
 
       values.pop(); // pop the empty value from the end...
 
       $('#last-value').text(values.pop());
+      $('#max-value').text(maxValue);
+      $('#min-value').text(minValue);
 
       var data = google.visualization.arrayToDataTable(arr);
-
-      console.log(maxValue);
-      console.log(minValue);
 
       var options = {
         title: title,
@@ -94,13 +101,19 @@
       width: 100%;
       height: 400px;
     }
+
+    label {
+      display: block;
+    }
   </style>
 </head>
 <body>
 <div id="chart-all" class="chart"></div>
 <div id="chart-short" class="chart"></div>
 <div class="meters">
-  Last value: <span id="last-value">Unknown</span>
+  <label>Last value:</label> <span id="last-value">Unknown</span>
+  <label>Minimum value:</label> <span id="min-value">Unknown</span>
+  <label>Maximum value:</label> <span id="max-value">Unknown</span>
 </div>
 </body>
 </html>

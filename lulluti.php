@@ -1,16 +1,26 @@
 <?php
+$today = date('Y-m-d');
 
-        ini_alter('date.timezone','Europe/Helsinki');
+$filename = "/tmp/$today-dax.log";
+
+ini_alter('date.timezone','Europe/Helsinki');
 
 if (isset($_GET['page']) && $_GET['page'] === 'index') {
     require_once('perkele.html');
     die;
 }
 
-$today = date('Y-m-d');
+if (isset($_GET['data'])) {
+    json(shell_exec("tail -n301 $filename"));
+}
 
-$output = file_get_contents("/tmp/$today-dax.log");
+json(file_get_contents($filename));
 
-header('Content-Type: application/json');
+function json($output)
+{
+    header('Content-Type: application/json');
 
-echo json_encode(explode("\n", $output));
+    echo json_encode(explode("\n", $output));
+
+    die;
+}
