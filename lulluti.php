@@ -1,9 +1,8 @@
 <?php
+        ini_alter('date.timezone','Europe/Helsinki');
 $today = date('Y-m-d');
 
 $filename = "/tmp/$today-dax.log";
-
-ini_alter('date.timezone','Europe/Helsinki');
 
 if (isset($_GET['page']) && $_GET['page'] === 'index') {
     require_once('perkele.html');
