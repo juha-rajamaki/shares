@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script>
+  <script type="text/javascript"
+          src="https://www.google.com/jsapi?autoload={
+            'modules':[{
+              'name':'visualization',
+              'version':'1',
+              'packages':['corechart']
+            }]
+          }"></script>
+  <script>
+    google.setOnLoadCallback(function() {
+      var chartAll = new google.visualization.LineChart(document.getElementById('chart-all'));
+      var chartShort = new google.visualization.LineChart(document.getElementById('chart-short'));
+
+      setInterval(function() {
+        $.get('http://localhost:9191', function(data) {
+          drawData(data, chartAll, 'Long period');
+        });
+      }, 10000);
+
+      setInterval(function() {
+        $.get('http://localhost:9191', function(data) {
+          drawData(_.takeRight(data, 600), chartShort, 'Short period');
+        });
+      }, 1000);
+    });
+
+    function drawData(values, chart, title) {
+
+      var i = 0;
+
+      var arr = [
+        ['aika', 'arvo']
+      ];
+
+      _.forEach(values, function(value) {
+        i = i + 1;
+
+        arr.push([ i, parseInt(value) ]);
+      });
+
+      values.pop();
+
+      $('#last-value').text(values.pop());
+
+      var data = google.visualization.arrayToDataTable(arr);
+
+      var options = {
+        title: title,
+        curveType: 'function',
+        legend: { position: 'right' },
+        colors: ['#b4ce2f', '#f68920', '#002c5b', '#9f0a34'],
+        trendlines: { 0: {
+          type: 'exponential',
+          visibleInLegend: true,
+          color: 'blue'
+        }}
+      };
+
+      chart.draw(data, options);
+    }
+  </script>
+  <style>
+    #chart {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+<div id="chart-all"></div>
+<div id="chart-short"></div>
+<div class="meters">
+  Last value: <span id="last-value">Unknown</span>
+</div>
+</body>
+</html>

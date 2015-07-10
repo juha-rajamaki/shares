@@ -8,16 +8,19 @@
 
 */
 
-        $today_start = '11216';
+$today_start = '11216';
 
-        ini_set('display_errors', 0);
-        error_reporting(E_NOTICE);
-        ini_alter('date.timezone','Europe/Helsinki');
+ini_set('display_errors', 0);
+error_reporting(E_NOTICE);
+ini_alter('date.timezone','Europe/Helsinki');
 
-	$url = "http://www.finanzen100.de/index/db-dax_H128378787_14207349/";
+$url = "http://www.finanzen100.de/index/db-dax_H128378787_14207349/";
 
-   $x=10000;
-   for ($x = 0; $x <= 10000; $x++) {
+// Loop forever
+while (true) {
+
+    // Loop for 10 minutes
+    for ($x = 0; $x <= 600; $x++) {
 
         $curl = curl_init();
 
@@ -36,13 +39,21 @@
         // Get Decimals
         preg_match_all('/([0-9]+\.[0-9]+)/', $matches[1][1], $matches);
 
-	$dax_now = $matches[0][0];
-	$dax_now = str_replace(".", "", $dax_now);
+        $dax_now = $matches[0][0];
+        $dax_now = str_replace(".", "", $dax_now);
 
-	$position = $dax_now-$today_start;
+        $position = $dax_now-$today_start;
 
-	echo "".$position."\n";
-	sleep (1);
+        $positionStr = "" . $position . "\n";
 
-} //for
+        echo $positionStr;
+
+        $today = date('Y-m-d');
+
+        file_put_contents("/tmp/$today-dax.log", $positionStr, FILE_APPEND);
+
+        sleep(1);
+
+    }
+}
 
