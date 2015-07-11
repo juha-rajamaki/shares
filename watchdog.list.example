@@ -196,7 +196,8 @@ $watchlist = array(
                 "SELL"          => "3",
                 "STRONG_SELL"   => "5",
         ),
-
+*/
+/*
         array(
                 "SHARE"         => "warrants/T-SHORTDAX-BNP70",
                 "ALL_IN"        => "1.5",
