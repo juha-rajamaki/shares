@@ -8,13 +8,13 @@
 
 */
 
-ini_set('display_errors', 0);
-error_reporting(E_NOTICE);
-ini_alter('date.timezone','Europe/Helsinki');
-$today = date('Y-m-d');
+	ini_set('display_errors', 0);
+	error_reporting(E_NOTICE);
+	ini_alter('date.timezone','Europe/Helsinki');
+	$today = date('Y-m-d');
+	$limiter = 20;		// Limit results?
 
 	$url = "https://www.google.com/finance/historical?q=INDEXDB%3ADAX&start=0&num=200&ei=6zyiVcCOEIHisgGc_axg";
-
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -34,6 +34,8 @@ $today = date('Y-m-d');
 	preg_match_all('#td[^>]*>(.*?)rm#s', $data, $matches);
 	$matches = $matches[0];
 
+	$matches = array_slice($matches, 0, $limiter);
+
 	$x = 0;
         foreach ($matches as $key => $value) {
 
@@ -42,21 +44,50 @@ $today = date('Y-m-d');
 
 	}
 
-	echo "Open       High       Low        Close \n";
+	echo "Open               High       Low        Close      Points\n";
 
-	$y = 0;
-	$printout = "";
+	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
 
-		$printout .= "".$value[0][0]."   ";
-        	$printout .= "".$value[0][1]."   ";
-        	$printout .= "".$value[0][2]."   ";
-        	$printout .= "".$value[0][3]."   ";
-        	$printout .= "\n";
+		$price_open 	= $value[0][0];
+                $price_high     = $value[0][1];
+                $price_low      = $value[0][2];
+                $price_close    = $value[0][3];
 
-	$y++;
+		$avg_open	= ($avg_open + $price_open);
 
+		$y++;
 	}
 
-echo $printout;
+	$avg_open = ($avg_open / $y);
 
+##########
+
+        $y = 0; $printout = "";
+        foreach ($dax as $key => $value) {
+
+                $price_open     = $value[0][0];
+                $price_high     = $value[0][1];
+                $price_low      = $value[0][2];
+                $price_close    = $value[0][3];
+
+                $points_moved   = round($price_close-$price_open,2);
+                if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
+                if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
+
+		$price_avg_compare = round($price_open / $avg_open * 100 - 100, 2);
+                if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m$price_avg_compare". chr(27)."[0m".""; }
+                if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare". chr(27)."[0m".""; }
+
+                $printout .= "".$price_open." ($price_avg_compare%)   ";  
+                $printout .= "".$price_high."   ";
+                $printout .= "".$price_low."   ";
+                $printout .= "".$price_close."   ";
+                $printout .= "".$points_moved."   ";
+
+                $printout .= "\n";
+
+        	$y++;
+        }
+
+echo $printout;
