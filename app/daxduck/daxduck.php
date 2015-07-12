@@ -8,9 +8,7 @@
 
 */
 
-$today_start = '11216';
-
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 error_reporting(E_NOTICE);
 ini_alter('date.timezone','Europe/Helsinki');
 
@@ -21,6 +19,8 @@ while (true) {
 
     // Loop for 10 minutes
     for ($x = 0; $x <= 600; $x++) {
+
+	require("daxduck.conf");
 
         $curl = curl_init();
 
@@ -50,7 +50,7 @@ while (true) {
 
         $today = date('Y-m-d');
 
-        file_put_contents("tmp/$today-dax.log", $positionStr, FILE_APPEND);
+        file_put_contents("../../tmp/$today-dax.log", $positionStr, FILE_APPEND);
 
         sleep(1);
 
