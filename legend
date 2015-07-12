@@ -15,7 +15,6 @@
 
 	$limiter 	= $argv[1];		// Limit results
 
-
 	$url = "https://www.google.com/finance/historical?q=INDEXDB%3ADAX&start=0&num=200&ei=6zyiVcCOEIHisgGc_axg";
         $curl = curl_init();
 
@@ -46,34 +45,35 @@
 
 	}
 
-	echo "\nOpen               High       Low        Close      Points\n";
+	echo "\nOpen               High       Low        Close      Points Night (Usa), Day\n";
 
 	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
 
-		$price_open 	= $value[0][0];
-                $price_high     = $value[0][1];
-                $price_low      = $value[0][2];
-                $price_close    = $value[0][3];
-
-		$avg_open	= ($avg_open + $price_open);
+		$open 		= $value[0][0];
+                $high     	= $value[0][1];
+                $low      	= $value[0][2];
+                $close    	= $value[0][3];
+		$avg_open	= ($avg_open + $open);
 
 		$y++;
 	}
 
 	$avg_open = ($avg_open / $y);
 
-	$sum_status_in_points = 0;
-        $y = 0;
-	$printout = "";
+	$sum_status_in_points = 0; $y = 0; $printout = ""; $price_close = '';
         foreach ($dax as $key => $value) {
+
+		$points_usa	= round($price_close - $value[0][0], 0);
+               	if($points_usa > 0) {     $points_usa = "".chr(27)."[1;32m$points_usa". chr(27)."[0m".""; }
+               	if($points_usa < 0) {     $points_usa = "".chr(27)."[1;35m$points_usa". chr(27)."[0m".""; }
 
                 $price_open     = $value[0][0];
                 $price_high     = $value[0][1];
                 $price_low      = $value[0][2];
                 $price_close    = $value[0][3];
 
-                $points_moved   = round($price_close-$price_open,2);
+                $points_moved   = round($price_close-$price_open);
                 $sum_status_in_points = ($sum_status_in_points + $points_moved);
 
                 if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
@@ -87,7 +87,8 @@
                 $printout .= "".$price_high."   ";
                 $printout .= "".$price_low."   ";
                 $printout .= "".$price_close."   ";
-                $printout .= "".$points_moved."";
+                $printout .= "".$points_usa.", ";
+		$printout .= "".$points_moved."";
 
                 $printout .= "\n";
         	$y++;
