@@ -46,7 +46,8 @@ while (true) {
 
         $positionStr = "" . $position . "\n";
 
-        echo $positionStr;
+	$now = date('d.m.Y H:i:s');
+        echo "".$x." [".$now."]     ".$positionStr."";
 
         $today = date('Y-m-d');
 
