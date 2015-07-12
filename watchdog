@@ -302,9 +302,9 @@ for ($x = 0; $x <= 10000; $x++) {
 	// Play exchange opening & closing bells
 
         $checktime                      = date('hi', time());
-        if($checktime == "1000") { echo "\nHelsinki exchange is now open\n"; echo exec('mplayer opening_bell.mp3'); }
-        if($checktime == "0630") { echo "\nHelsinki exchange is now closed\n"; echo exec('mplayer opening_bell.mp3'); }
-        if($checktime == "0430") { echo "\nNew York exchange is now open\n"; echo exec('mplayer opening_bell.mp3'); }
+        if($checktime == "1000") { echo "\nHelsinki exchange is now open\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
+        if($checktime == "0630") { echo "\nHelsinki exchange is now closed\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
+        if($checktime == "0430") { echo "\nNew York exchange is now open\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
 
 
 	// Timeout
