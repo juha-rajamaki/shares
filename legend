@@ -22,9 +22,7 @@ $today = date('Y-m-d');
         curl_setopt($curl, CURLOPT_HEADER, false);
 
         $data = curl_exec($curl);
-
         $data = str_replace(",", "", $data);
-//        $data = str_replace(".", ",", $data);
 
 	preg_match_all('#<table[^>]*>(.*?)</table>#s', $data, $matches);
 	$data = $matches[1][3];
@@ -33,23 +31,32 @@ $today = date('Y-m-d');
 	$data = str_replace("<", "", $data);
         $data = str_replace("-", "", $data);
 
-        // Get Decimals
-        preg_match_all('/([0-9]+\.[0-9]+)/', $data, $matches);
-	$matches = $matches[0];	
+	preg_match_all('#td[^>]*>(.*?)rm#s', $data, $matches);
+	$matches = $matches[0];
 
-	print_r($matches);
-	die('TODO');
+	$x = 0;
+        foreach ($matches as $key => $value) {
 
-/*
+		preg_match_all('/([0-9]+\.[0-9]+)/', $value, $dax[$x]);
+		$x++;
 
-	foreach ($matches as $key => $value) {
-
-	    	// Loop for 5 timess
-    		for ($x = 0; $x <= 3; $x++) {
-
-			echo "  ".$value."";
-
-		}
-		echo "\n";
 	}
-*/
+
+	echo "Open       High       Low        Close \n";
+
+	$y = 0;
+	$printout = "";
+        foreach ($dax as $key => $value) {
+
+		$printout .= "".$value[0][0]."   ";
+        	$printout .= "".$value[0][1]."   ";
+        	$printout .= "".$value[0][2]."   ";
+        	$printout .= "".$value[0][3]."   ";
+        	$printout .= "\n";
+
+	$y++;
+
+	}
+
+echo $printout;
+
