@@ -45,7 +45,7 @@
 
 	}
 
-	echo "\nOpen               High       Low        Close      Points Night (Usa), Day\n";
+	echo "\nOpen (Average)   High    Low     Close   Night / Day\n";
 
 	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
@@ -65,13 +65,11 @@
         foreach ($dax as $key => $value) {
 
 		$points_usa	= round($price_close - $value[0][0], 0);
-               	if($points_usa > 0) {     $points_usa = "".chr(27)."[1;32m$points_usa". chr(27)."[0m".""; }
-               	if($points_usa < 0) {     $points_usa = "".chr(27)."[1;35m$points_usa". chr(27)."[0m".""; }
 
-                $price_open     = $value[0][0];
-                $price_high     = $value[0][1];
-                $price_low      = $value[0][2];
-                $price_close    = $value[0][3];
+                $price_open     = round($value[0][0], 0);
+                $price_high     = round($value[0][1], 0);
+                $price_low      = round($value[0][2], 0);
+                $price_close    = round($value[0][3], 0);
 
                 $points_moved   = round($price_close-$price_open);
                 $sum_status_in_points = ($sum_status_in_points + $points_moved);
@@ -80,14 +78,14 @@
                 if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
 
 		$price_avg_compare = round($price_open / $avg_open * 100 - 100, 2);
-                if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m$price_avg_compare". chr(27)."[0m".""; }
-                if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare". chr(27)."[0m".""; }
+                if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
+                if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
 
-                $printout .= "".$price_open." ($price_avg_compare%)   ";  
+                $printout .= "".$price_open." ($price_avg_compare)   "; 
                 $printout .= "".$price_high."   ";
                 $printout .= "".$price_low."   ";
                 $printout .= "".$price_close."   ";
-                $printout .= "".$points_usa.", ";
+                $printout .= "".$points_usa." / ";
 		$printout .= "".$points_moved."";
 
                 $printout .= "\n";
@@ -95,4 +93,4 @@
         }
 
 echo "".$printout."\n";
-echo "TOTAL: ".$sum_status_in_points."\n\n";
+echo "TOTAL: ".$sum_status_in_points." pt\n\n";
