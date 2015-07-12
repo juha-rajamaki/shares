@@ -1,0 +1,55 @@
+<?php
+
+/*
+
+        DaxLegend program for showing historical prices for DAX
+        Written by borre 2015
+        Open Source - please free to use, share and contribute.
+
+*/
+
+ini_set('display_errors', 0);
+error_reporting(E_NOTICE);
+ini_alter('date.timezone','Europe/Helsinki');
+$today = date('Y-m-d');
+
+	$url = "https://www.google.com/finance/historical?q=INDEXDB%3ADAX&start=0&num=200&ei=6zyiVcCOEIHisgGc_axg";
+
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+
+        $data = curl_exec($curl);
+
+        $data = str_replace(",", "", $data);
+//        $data = str_replace(".", ",", $data);
+
+	preg_match_all('#<table[^>]*>(.*?)</table>#s', $data, $matches);
+	$data = $matches[1][3];
+
+ 	$data = str_replace("<tr>", "", $data);
+	$data = str_replace("<", "", $data);
+        $data = str_replace("-", "", $data);
+
+        // Get Decimals
+        preg_match_all('/([0-9]+\.[0-9]+)/', $data, $matches);
+	$matches = $matches[0];	
+
+	print_r($matches);
+	die('TODO');
+
+/*
+
+	foreach ($matches as $key => $value) {
+
+	    	// Loop for 5 timess
+    		for ($x = 0; $x <= 3; $x++) {
+
+			echo "  ".$value."";
+
+		}
+		echo "\n";
+	}
+*/
