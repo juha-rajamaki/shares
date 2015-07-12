@@ -1,0 +1,8 @@
+# update today start value
+cp daxduck.conf.example daxduck.conf
+
+# launch data collector
+php daxduck
+
+launch browser
+php -S localhost:9191 daxduck-backend.php

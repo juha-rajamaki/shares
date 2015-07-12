@@ -4,7 +4,7 @@ ini_alter('date.timezone','Europe/Helsinki');
 
 $today = date('Y-m-d');
 
-$filename = "tmp/$today-dax.log";
+$filename = "../../tmp/$today-dax.log";
 
 if (isset($_GET['data'])) {
     $data = null;
