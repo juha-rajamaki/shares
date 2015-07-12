@@ -19,17 +19,20 @@
         $collector                      = array();
 	$engine				= '';
 
-        require_once('doge.ascii');
+	$app 				= 'app/watchdog/';
+
+        require_once("".$app."doge.ascii");
         print_r($doge);
-        require_once('watchdog.conf.example');
-	require_once('watchdog.list.example');
+
+        require_once("".$app."watchdog.conf.example");
+	require_once("".$app."watchdog.list.example");
 
 	sleep(1);
 
 for ($x = 0; $x <= 10000; $x++) {
 
-        include('watchdog.conf');
-        include('watchdog.list');
+        include("".$app."watchdog.conf");
+        include("".$app."watchdog.list");
 
         echo "Watch Dog run started @ $time \n\n";
 	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   TRADES   INSTRUMENT\n";
