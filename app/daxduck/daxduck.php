@@ -17,8 +17,8 @@ $url = "http://www.finanzen100.de/index/db-dax_H128378787_14207349/";
 // Loop forever
 while (true) {
 
-    // Loop for 10 minutes
-    for ($x = 0; $x <= 600; $x++) {
+    // Loop for 12 h max
+    for ($x = 0; $x <= 43200; $x++) {
 
 	require("daxduck.conf");
 
