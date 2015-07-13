@@ -1,0 +1,5 @@
+<?php
+        $title 		= 'T-SHORTDAX-PE-CZV';
+	$knock		= '11 527,37';
+        $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=B-SHRTDAX-PE-CZB.NGM';
+	$engine 	= '2';

@@ -45,7 +45,7 @@
 
 	}
 
-	echo "\nOpen (Start)   High    Low     Close   Night / Day\n";
+	echo "\nOpen (Start)   High    Low     Close   Points\n";
 
 	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
