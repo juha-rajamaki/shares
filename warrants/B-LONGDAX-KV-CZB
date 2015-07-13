@@ -3,4 +3,4 @@
 	$knock		= '10 628,49';
         $url 		= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGDAX-KV-CZB.NGM';
 	$engine 	= '2';
-//	$my_price	= '6.38';
+	$my_price	= '8.46';
