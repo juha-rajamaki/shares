@@ -3,3 +3,4 @@
 	$knock		= '11 359,85';
         $url 		= 'http://www.netfonds.no/quotes/ppaper.php?paper=T-SHORTDAX-BNP67&exchange=NGM';
 	$engine 	= '2';
+	$my_price 	= '1.62';
