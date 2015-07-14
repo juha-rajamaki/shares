@@ -12,8 +12,8 @@ $start_collector        = '085900';     // Collector start time (note: Exchange 
 $end_collector          = '190000';
 $max_waittime 		= 3600;		// time to wait max to start the collector, 3600 equals 1h
 $max_runtimes 		= 86400;	// Max limit for data collecting, 86400 equals around 12 hours
-$looper 		= 0;
 
+$looper 		= 0;
 ini_set('display_errors', 0);
 error_reporting(E_NOTICE);
 ini_alter('date.timezone','Europe/Helsinki');

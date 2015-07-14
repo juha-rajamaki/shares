@@ -40,7 +40,7 @@ for ($x = 0; $x <= 10000; $x++) {
 	foreach($watchlist as $item):
 
 		$share = $item['SHARE'];
-                require("./"."$share");
+                include("./"."$share");
 
         	$curl = curl_init();
 
@@ -296,6 +296,8 @@ for ($x = 0; $x <= 10000; $x++) {
 		$last_change_show = '';		// reset last change
 		$now_color = '';		// reset now color
                 $today_trades = '';             // reset today trades
+		$title = 'Err';			// reset Titles
+		$url = 'Err';			// reset Urls
 
 	endforeach;
 
