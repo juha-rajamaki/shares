@@ -42,7 +42,7 @@ while (true) {
         $dax_now = $matches[0][0];
         $dax_now = str_replace(".", "", $dax_now);
 
-        $position = $dax_now-$today_start;
+	if($dax_now) { $position = $dax_now-$today_start; }
 
         $positionStr = "" . $position . "\n";
 
