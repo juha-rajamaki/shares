@@ -12,6 +12,8 @@ ini_set('display_errors', 1);
 error_reporting(E_NOTICE);
 ini_alter('date.timezone','Europe/Helsinki');
 
+$today_start        = $argv[1];             // Limit results
+
 $url = "http://www.finanzen100.de/index/db-dax_H128378787_14207349/";
 
 // Loop forever
@@ -20,7 +22,7 @@ while (true) {
     // Loop for 12 h max
     for ($x = 0; $x <= 43200; $x++) {
 
-	require("daxduck.conf");
+//	require("daxduck.conf");
 
         $curl = curl_init();
 
