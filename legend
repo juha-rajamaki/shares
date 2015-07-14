@@ -65,9 +65,11 @@
         foreach ($dax as $key => $value) {
 
                 $price_avg_compare = round($value[0][0] / $price_close * 100 - 100, 2);
-                if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
-                if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
-
+		
+		if($price_avg_compare == "-100") { $price_avg_compare = "---"; } else { 
+                	if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
+                	if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
+		}
                 $price_open     = round($value[0][0], 0);
                 $price_high     = round($value[0][1], 0);
                 $price_low      = round($value[0][2], 0);
