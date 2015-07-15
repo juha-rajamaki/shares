@@ -31,8 +31,8 @@
 
 for ($x = 0; $x <= 10000; $x++) {
 
-        include("".$app."watchdog.conf");
-        include("".$app."watchdog.list");
+        include("watchdog.conf");
+        include("watchdog.list");
 
         echo "Watch Dog run started @ $time \n\n";
 	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   TRADES   INSTRUMENT\n";
