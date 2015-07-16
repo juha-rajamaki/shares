@@ -1,345 +1,182 @@
 <?php
 /*
 
-	WatchDog program for timing your buy's and sell's
-	Written by borre 2015
-	Open Source - please free to use, share and contribute.
+     Add here the shares you want to follow
 
 */
 
-	ini_set('display_errors', 0);
-	error_reporting(E_NOTICE);
+$watchlist = array(
+
+	array(
+		"SHARE" 	=> "certificates/bull-olja-x5c",
+                "ALL_IN"        => "0.3",
+                "STRONG_BUY"    => "0.7",
+		"BUY" 		=> "0.95",
+		"SELL" 		=> "1.35",
+		"STRONG_SELL" 	=> "1.50",
+	),
+
+        array(
+                "SHARE" 	=> "exchange-trade-notes/bull-seadrill-x3-cz",
+                "ALL_IN"        => "0.3",
+                "STRONG_BUY" 	=> "0.7",
+                "BUY" 		=> "0.95",
+                "SELL" 		=> "1.15",
+                "STRONG_SELL" 	=> "1.6",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-gas-x5c",
+                "ALL_IN"        => "0.35",
+                "STRONG_BUY"    => "0.5",
+                "BUY"           => "0.75",
+                "SELL"          => "1.2",
+                "STRONG_SELL"   => "1.6",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-gild-x5-von",
+                "ALL_IN"        => "50",
+                "STRONG_BUY"    => "75",
+                "BUY"           => "100",
+                "SELL"          => "130",
+                "STRONG_SELL"   => "150",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-silver-x4c",
+                "ALL_IN"        => ".3",
+                "STRONG_BUY"    => "0.5",
+                "BUY"           => "0.6",
+                "SELL"          => "0.75",
+                "STRONG_SELL"   => "0.8",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-koppar-x4c",
+                "ALL_IN"        => "3",
+                "STRONG_BUY"    => "4",
+                "BUY"           => "4.5",
+                "SELL"          => "5.5",
+                "STRONG_SELL"   => "6",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-pallad-x8-von",
+                "ALL_IN"        => "5",
+                "STRONG_BUY"    => "10",
+                "BUY"           => "20",
+                "SELL"          => "50",
+                "STRONG_SELL"   => "75",
+        ),
+
+        array(
+                "SHARE" 	=> "exchange-trade-notes/bull-omx-x15-sg",
+                "ALL_IN"    	=> "10",
+                "STRONG_BUY" 	=> "100",
+                "BUY" 		=> "270",
+                "SELL" 		=> "350",
+                "STRONG_SELL" 	=> "400",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-omx-x18-von2",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "2.5",
+                "BUY"           => "7",
+                "SELL"          => "15",
+                "STRONG_SELL"   => "20",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bear-omx-x15-sg2",
+                "ALL_IN"        => "0.5",
+                "STRONG_BUY"    => "0.9",
+                "BUY"           => "1",
+                "SELL"          => "2",
+                "STRONG_SELL"   => "2.5",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-estoxxx-15sg",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "3",
+                "BUY"           => "6",
+                "SELL"          => "10",
+                "STRONG_SELL"   => "20",
+        ),
+
 
-	ini_alter('date.timezone','Europe/Helsinki');
-
-	$time                           = date('d.m.Y H:i:s');
-        $showtext 			= '';
-	$last_change 			= '';
-	$last_change_show		= array();
-        $collector                      = array();
-	$engine				= '';
-
-	$app 				= 'app/watchdog/';
-
-        require_once("".$app."doge.ascii");
-        print_r($doge);
-
-        require_once("".$app."watchdog.conf.example");
-	require_once("".$app."watchdog.list.example");
-
-	sleep(1);
-
-for ($x = 0; $x <= 10000; $x++) {
-
-        include("watchdog.conf");
-        include("watchdog.list");
-
-        echo "Watch Dog run started @ $time \n\n";
-	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   TRADES   INSTRUMENT\n";
-
-	// Daily warrants
-	$dir    	= 'watchdog-daily';
-	$dailyfiles 	= scandir($dir);
-	unset($dailyfiles[0]);
-	unset($dailyfiles[1]);
-
-	foreach($dailyfiles as $daily):
-
-		$array = array(
-
-			"SHARE" => "watchdog-daily/$daily",
-	                "ALL_IN"        => "1.5",
-        	        "STRONG_BUY"    => "3.5",
-               		"BUY"           => "5",
-                	"SELL"          => "7.5",
-                	"STRONG_SELL"   => "10",
-
-		);
-		array_push($watchlist, $array);
-
-	endforeach;
-
-
-	foreach($watchlist as $item):
-
-		$share = $item['SHARE'];
-                include("./"."$share");
-
-        	$curl = curl_init();
-
-        	curl_setopt($curl, CURLOPT_URL, $url);
-        	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        	curl_setopt($curl, CURLOPT_HEADER, false);
-
-        	$data = curl_exec($curl);
-		
-		// Clean up the white spaces from data for better matching
-                $data = str_replace(" ", "", $data);
-
-		// find rows from data
-                preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
-
-		// Warrants
-                if($engine == 1) {
-
-			// Get decimals
-                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
-
-                        $today_start    			= '0';
-                        $current      				= $matches[0][5];
-                        $today_lowest   			= '0';
-                        $today_highest  			= '0';
-			$sell_now				= $matches[0][4];
-                        $buy_now       				= $matches[0][3];
-
-                        $today_trades   = 'Xxx';
-
-		}
-                
-		// BULL Nokia, BULL YIT, BULL Nokian renkaat
-                elseif($engine == 2) {
-
-                        // Get numbers
-                        preg_match_all('/([0-9]+)/', $matches[0][13], $matches_numbers);
-                        $count          = count($matches_numbers[0])-1;
-
-			// Get Decimals
-                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][13], $matches);
-
-                        $today_start                            = $matches[0][5];
-                        $current      				= $matches[0][0];	// 8 -> 0
-                        $today_lowest                           = $matches[0][7];
-                        $today_highest                          = $matches[0][6];
-                        $sell_now                               = $matches[0][4];
-                        $buy_now                                = $matches[0][3];
-
-                        // Match fix 1
-                        if(count($matches[0]) == 5) {
-				$current  			= $matches[0][4];
-                        	$sell_now                       = $matches[0][3];
-                        	$buy_now                        = $matches[0][2];
-			}
-
-                        if(count($matches[0]) == 0) { $current  = "-"; }
-
-			// Match fix 2
-                        if(count($matches[0]) == 6) { $current  = $matches[0][5]; }			
-
-		}
-
-		// BULL NORDEA
-                elseif($engine == 3) {
-
-			// Get Decimals
-                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
-
-                        $today_start                            = $matches[0][7];
-                        $current                                = $matches[0][6];
-                        $today_lowest                           = $matches[0][9];
-                        $today_highest                          = $matches[0][8];
-                        $sell_now                               = $matches[0][4];
-                        $buy_now                                = $matches[0][3];
-
-                        if(count($matches[0]) == 0) { $current  = "-"; }
-                        if(count($matches[0]) == 2) { $current  = "-"; }
-
-			$today_trades   = '';
-
-                } else {
-
-                        // Get numbers
-                        preg_match_all('/([0-9]+)/', $matches[0][14], $matches_numbers);
-	                $count 		= count($matches_numbers[0])-1;
-
-			// Get decimals (note! : overwriting)
-                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
-
-                        $today_start    			= $matches[0][7];
-                        $current        			= $matches[0][0];
-                        $today_lowest   			= $matches[0][9];
-                        $today_highest  			= $matches[0][8];
-                        $sell_now                               = $matches[0][5];
-                        $buy_now                                = $matches[0][4];
-
-			// Matching fixes
-                        if(count($matches[0]) == 7) {
-				$current  	= $matches[0][2];
-				$buy_now        = $matches[0][3];
-			}
-
-			if(count($matches[0]) == 3) { $current  = $matches[0][2]; } 
-                        if(count($matches[0]) == 2) { $current  = "-";  }
-                        if(count($matches[0]) == 0) { $current  = "-";  }
-
-                }
-
-                $today_average  				= round(($today_lowest+$today_highest)/2, 2);
-                if($today_lowest)  {  	$volatility     	= round(($today_highest/$today_lowest)*100-100, 2); } else { $volatility = 0; }
-		if($today_start)   {	$today_direction	= round(($current/$today_start)*100-100, 2); } else { $today_direction = 0; }
-		if($volatility)    {    $today_trades   	= $matches_numbers[0][$count]; } else { $today_trades = '-'; } 
-
-                $space_start            = str_repeat(' ', (7-strlen($today_start)));
-                $space_low              = str_repeat(' ', (7-strlen($today_lowest)));
-                $space_high             = str_repeat(' ', (7-strlen($today_highest)));
-                $space_avg              = str_repeat(' ', (8-strlen($today_average)));
-                $space_buy_now          = str_repeat(' ', (7-strlen($buy_now)));
-                $space_sell_now         = str_repeat(' ', (7-strlen($sell_now)));
-                $space_cur              = str_repeat(' ', (7-strlen($current)));
-                $space_dir              = str_repeat(' ', (7-strlen($today_direction)));
-		$space_vol 		= str_repeat(' ', (6-strlen($volatility)));
-                $space_trades           = str_repeat(' ', (6-strlen($today_trades)));
-                $space_title       	= str_repeat(' ', (29-strlen($title)));
-		$space_url		= str_repeat(' ', (76-strlen($url)));
-
-		// Strategy indicator
-		$status = "";
-		if($current == "-") { $status = "".chr(27) . "[40m" ."-          ". chr(27) . "[0m".""; }
-		elseif($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
-                elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
-                elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
-                elseif($current > $item['STRONG_SELL']) { $status = "".chr(27) . "[41m" ."STRONG SELL". chr(27) . "[0m".""; }
-		elseif($current >= $item['SELL']) { $status = "".chr(27) . "[45m" ."SELL       ". chr(27) . "[0m".""; }
-                elseif($current <= $item['BUY']) { $status = "".chr(27) . "[46m" ."BUY        ". chr(27) . "[0m".""; }
-		else { die('error: status'); }
-
-		// Now colorizer
-	        if($current == $today_start) { $now_color = "[40m";
-                        } elseif ($current == 0) {
-				$now_color = "[40m";
-			} elseif ($current > $today_start) {
-        	        	if($current == $today_highest) { $now_color = "[42m"; } else { $now_color = "[44m"; }
-        		} elseif ($current < $today_start) {
-        		        if($current == $today_lowest) { $now_color = "[41m"; } else { $now_color = "[43m"; }
-        	} else { die('error:current'); }
-
-                // make last change
-		if(isset($last_change["".$share.""])) {
-
-                	if($last_change["".$share.""] != $current) {
-                                $last_change_show = round($current / $last_change["".$share.""]  * 100 - 100, 2);
-
-				if($current > $last_change["".$share.""]) 
-				{ // Going Up colorize
-				$last_change_show = "".chr(27)."[1;32m UP +".$last_change_show."%". chr(27) . "[0m"."";
-                                $collector["".$share.""]['price_direction'][] = 'U';
-
-				} else { // Going Down colorize
-				$last_change_show = "".chr(27)."[1;33m DOWN: ".$last_change_show."%". chr(27) . "[0m"."";
-				$collector["".$share.""]['price_direction'][] = 'D';
-
-				}
-
-			$last_change["".$share.""] = $current;
-			$collector["".$share.""]['pricechange'][] = $current;
-
-                	}
-
-		} else { $last_change["".$share.""] = $current; }
-
-                // Make current direction
-
-                if($today_direction > 0) { $today_direction = "".chr(27) . "[1;32m" ."$today_direction%". chr(27) . "[0m".""; }
-                elseif($today_direction < 0) { $today_direction = "".chr(27) . "[1;33m" ."$today_direction%". chr(27) . "[0m".""; }
-                else { $today_direction = "$today_direction%";  }
-
-		// Collector
-
-                $collector_printout = '';
-                if(isset($collector["".$share.""])) {
-                        foreach($collector["".$share.""]['price_direction'] as $value) {
-                                if($value == 'U') { $collector_printout .= "U"; }
-                                if($value == 'D') { $collector_printout .= "D"; }
-                        }
-                }
-
-                // Get the last x changes from collector and colorize. 
-
-                $collector_printout     = substr($collector_printout, -$changes_length_max);
-                $downs                  = substr_count($collector_printout, 'D');
-                $ups                    = substr_count($collector_printout, 'U');
-                $collector_printout     = str_replace('D', "".chr(27)."[1;33m#". chr(27) . "[0m"."", $collector_printout);
-                $collector_printout     = str_replace('U', "".chr(27)."[1;32m#". chr(27) . "[0m"."", $collector_printout);
-
-		// Screen print out
-
-		$printout = '';
-		$printout .= "$status  $today_start$space_start ";
-
-		if($current == $today_lowest) { $today_lowest = "".chr(27) . "[41m" ."$today_lowest". chr(27) . "[0m".""; }
-                $printout .= "$today_lowest$space_low ";
-
-                if($current == $today_highest) { $today_highest = "".chr(27) . "[42m" ."$today_highest". chr(27) . "[0m".""; }
-		$printout .= "$today_highest$space_high ";
-
-		if($today_average == 0) { $today_average = " "; }
-		$printout .= "$today_average$space_avg$buy_now$space_buy_now $sell_now$space_sell_now ";
-		$printout .= "".chr(27)."$now_color"."$current".chr(27)."[0m"."$space_cur ";
-
-                if($ups > $downs) {     $printout .= "".chr(27)."[1;32mUP    ". chr(27) . "[0m".""; }
-                elseif($downs > $ups) { $printout .= "".chr(27)."[1;33mDOWN  ". chr(27) . "[0m".""; }
-                else {                  $printout .= "      "; }
-
-                $printout .= "$space_dir$today_direction ";
-		$printout .= "$space_vol$volatility%   ";
-                $printout .= "$space_trades$today_trades   ";
-
-		// Colorize titles
-                if (preg_match('/FUTURE/',$title)) { $title = "".chr(27)."[1;37m$title". chr(27) . "[0m".""; }
-		if (preg_match('/BULL/',$title)) { $title = "".chr(27)."[1;32m$title". chr(27) . "[0m".""; }
-		if (preg_match('/BEAR/',$title)) { $title = "".chr(27)."[1;33m$title". chr(27) . "[0m".""; }
-                if (preg_match('/LONG/',$title)) { $title = "".chr(27)."[1;34m$title". chr(27) . "[0m".""; }
-		if (preg_match('/SHORT/',$title)) { $title = "".chr(27)."[1;35m$title". chr(27) . "[0m".""; }
-
-		$printout .= "$title$space_title ";
-                $printout .= "$url$space_url ";
-
-                // set the knock out value if available
-                if(isset($knock) && $knock != '0') { $printout .= "@ $knock "; $knock = '0'; }
-
-		// If my price is set
-		if(isset($my_price) && $my_price != '0') {
-
-			$position = round(($buy_now / $my_price)*100-100, 2); 
-
-			// Colorize my price
-			if($my_price < $buy_now) { $position = "".chr(27)."[1;32m$position%". chr(27) . "[0m".""; }
-			if($my_price > $buy_now) { $position = "".chr(27)."[1;33m$position%". chr(27) . "[0m".""; }
-                        if($my_price == $buy_now) { $position = "".chr(27)."[1;36m$position%". chr(27) . "[0m".""; }
-
-			$printout .= "> $position "; $my_price = '0';
-		}
-
-		$printout .= "$collector_printout ";
-		if($last_change_show) { $printout .= " $last_change_show"; }
-
-		$printout .= "\n";
-		echo "$printout";
-
-		$engine = '';			// reset instrument engine
-		$last_change_show = '';		// reset last change
-		$now_color = '';		// reset now color
-                $today_trades = '';             // reset today trades
-		$title = 'Err';			// reset Titles
-		$url = 'Err';			// reset Urls
-
-	endforeach;
-
-	// Play exchange opening & closing bells
-
-        $checktime                      = date('hi', time());
-        if($checktime == "1000") { echo "\nHelsinki exchange is now open\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
-        if($checktime == "0630") { echo "\nHelsinki exchange is now closed\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
-        if($checktime == "0430") { echo "\nNew York exchange is now open\n"; echo exec('mplayer app/watchdog/opening_bell.mp3'); }
-
-
-	// Timeout
-
-	echo "\n".$wait."s [";
-	for ($x = 1; $x <= $wait; $x++) {
-        	sleep (1);
-        	echo ".";
-	}
-
-        system('clear');
-
-} //for
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-dax-x15sg",
+		"ALL_IN"	=> "0.5",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "5",
+                "SELL"          => "10",
+                "STRONG_SELL"   => "15",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-dax-x18-von2",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "2",
+                "BUY"           => "11",
+                "SELL"          => "20",
+                "STRONG_SELL"   => "35",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bear-dax-x18-von",
+                "ALL_IN"        => "3.5",
+                "STRONG_BUY"    => "4.5",
+                "BUY"           => "6",
+                "SELL"          => "10",
+                "STRONG_SELL"   => "12",
+        ),
+
+        array(
+                "SHARE"         => "warrants/B-LONGNOK-GQ-CZB",
+                "ALL_IN"        => "0.25",
+                "STRONG_BUY"    => "0.5",
+                "BUY"           => "0.75",
+                "SELL"          => "1",
+                "STRONG_SELL"   => "2",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-yit-x3-c2",
+                "ALL_IN"        => "1",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "2",
+                "SELL"          => "3",
+                "STRONG_SELL"   => "5",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-nordea-x5-von",
+                "ALL_IN"        => "100",
+                "STRONG_BUY"    => "150",
+                "BUY"           => "200",
+                "SELL"          => "300",
+                "STRONG_SELL"   => "350",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-nre-x3-c",
+                "ALL_IN"        => "1.2",
+                "STRONG_BUY"    => "1.5",
+                "BUY"           => "2.5",
+                "SELL"          => "4",
+                "STRONG_SELL"   => "5",
+        ),
+
+        array(
+                "SHARE"         => "exchange-trade-notes/bull-google-x3c",
+                "ALL_IN"        => "100",
+                "STRONG_BUY"    => "220",
+                "BUY"           => "250",
+                "SELL"          => "300",
+                "STRONG_SELL"   => "350",
+        ),
+
+);
