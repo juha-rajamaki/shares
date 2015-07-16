@@ -178,7 +178,7 @@ $watchlist = array(
                 "SELL"          => "3",
                 "STRONG_SELL"   => "5",
         ),
-
+/*
         array(
                 "SHARE"         => "warrants/B-SHORTDAX-PE-CZB",
                 "ALL_IN"        => "1.5",
@@ -196,7 +196,7 @@ $watchlist = array(
                 "SELL"          => "3",
                 "STRONG_SELL"   => "5",
         ),
-
+*/
         array(
                 "SHARE"         => "warrants/B-LONGNOK-GQ-CZB",
                 "ALL_IN"        => "0.25",
