@@ -3,4 +3,4 @@
         $url 		= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGNOK-GQ-CZB.NGM';
 	$engine 	= '2';
 	$knock 		= '5,69';
-	$my_price	= '';
+	$my_price	= 0;
