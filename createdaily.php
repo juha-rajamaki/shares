@@ -13,7 +13,7 @@
 	$txt .= '$knock          = '; $txt .= "'"; $txt .= "$knock"; $txt .= "';\n";
         $txt .= '$url          	= '; $txt .= "'"; $txt .= "http://www.netfondsbank.fi/quotes/ppaper.php?paper=$filename.NGM"; $txt .= "';\n";
         $txt .= '$engine         = '; $txt .= "'"; $txt .= "2"; $txt .= "';\n";
-        $txt .= '$my_price       = '; $txt .= "'"; $txt .= ""; $txt .= "';\n";
+        $txt .= '$my_price       = ; $txt .= "0;\n";
 
 	fwrite($myfile, $txt);
 	fclose($myfile);
