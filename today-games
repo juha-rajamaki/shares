@@ -1,0 +1,97 @@
+<?php
+
+/*
+
+        Today Games - program for showing active turbowarrants
+        Written by borre 2015
+        Open Source - please free to use, share and contribute.
+
+*/
+
+	ini_set('display_errors', 0);
+	error_reporting(E_NOTICE);
+	ini_alter('date.timezone','Europe/Helsinki');
+	$today = date('Y-m-d');
+
+	$url = "https://www.nordnet.fi/mux/web/marknaden/kurslista/warranter.html?flerSokfalt=1&selectedtab=Overview&sortcolumn=turnover_volume&sortorder=descending&instrument=16147954&currency=EUR&market_view=&instr_group_type=&instr_type=&issuer=&date=&";
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+
+        $data = curl_exec($curl);
+
+	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
+
+print_r($matches);
+die('asd');
+
+	$data = $matches[1][3];
+
+ 	$data = str_replace("<tr>", "", $data);
+	$data = str_replace("<", "", $data);
+        $data = str_replace("-", "", $data);
+
+	preg_match_all('#td[^>]*>(.*?)rm#s', $data, $matches);
+	$matches = $matches[0];
+
+	$matches = array_slice($matches, 0, $limiter);
+
+	$x = 0;
+        foreach ($matches as $key => $value) {
+
+		preg_match_all('/([0-9]+\.[0-9]+)/', $value, $dax[$x]);
+		$x++;
+
+	}
+
+	echo "\nOpen (Start)   High    Low     Close   Points\n";
+
+	$y = 0; $avg_open = 0;
+        foreach ($dax as $key => $value) {
+
+		$open 		= $value[0][0];
+                $high     	= $value[0][1];
+                $low      	= $value[0][2];
+                $close    	= $value[0][3];
+		$avg_open	= ($avg_open + $open);
+
+		$y++;
+	}
+
+	$avg_open = ($avg_open / $y);
+
+	$sum_status_in_points = 0; $y = 0; $printout = ""; $price_close = '';
+        foreach ($dax as $key => $value) {
+
+                $price_avg_compare = round($value[0][0] / $price_close * 100 - 100, 2);
+		
+		if($price_avg_compare == "-100") { $price_avg_compare = "---"; } else { 
+                	if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
+                	if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
+		}
+                $price_open     = round($value[0][0], 0);
+                $price_high     = round($value[0][1], 0);
+                $price_low      = round($value[0][2], 0);
+                $price_close    = round($value[0][3], 0);
+
+                $points_moved   = round($price_close-$price_open);
+                $sum_status_in_points = ($sum_status_in_points + $points_moved);
+
+                if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
+                if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
+
+                $printout .= "".$price_open."";
+		$printout .= " ($price_avg_compare)   "; 
+                $printout .= "".$price_high."   ";
+                $printout .= "".$price_low."   ";
+                $printout .= "".$price_close."   ";
+		$printout .= "".$points_moved."";
+
+                $printout .= "\n";
+        	$y++;
+        }
+
+echo "".$printout."\n";
+echo "TOTAL: ".$sum_status_in_points." pt\n\n";
