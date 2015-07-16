@@ -38,7 +38,6 @@ if($checktime < $start_collector) { die('Collector waited but not started.'); }
 
 echo "\nCollector started !\n\n";
 
-    // Loop for a minute
     for ($x = 1; $x < $max_runtimes; $x++) {
 
         $curl = curl_init();
