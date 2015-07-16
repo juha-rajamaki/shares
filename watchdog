@@ -37,6 +37,16 @@ for ($x = 0; $x <= 10000; $x++) {
         echo "Watch Dog run started @ $time \n\n";
 	echo "STRATEGY     START   LOW     HIGH    AVG     BUY     SELL    LAST    DIR      TODAY     VOL   TRADES   INSTRUMENT\n";
 
+/*	TODO: loppuún
+	print_r($watchlist);
+	$dir    	= 'watchdog-daily';
+	$dailyfiles 	= scandir($dir);
+	unset($dailyfiles[0]);
+	unset($dailyfiles[1]);
+	print_r($dailyfiles);
+	die('asd');
+*/
+
 	foreach($watchlist as $item):
 
 		$share = $item['SHARE'];
