@@ -49,7 +49,7 @@
 
 	}
 
-	echo "\nOpen (Start)   High    Low     Close   Points\n";
+	echo "\n          Open    High    Low     Close   Points\n";
 
 	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
@@ -70,7 +70,7 @@
 
                 $price_avg_compare = round($value[0][0] / $price_close * 100 - 100, 2);
 		
-		if($price_avg_compare == "-100") { $price_avg_compare = "---"; } else { 
+		if($price_avg_compare == "-100") { $price_avg_compare = "------"; } else { 
                 	if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
                 	if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
 		}
@@ -85,8 +85,8 @@
                 if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
                 if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
 
-                $printout .= "".$price_open."";
-		$printout .= " ($price_avg_compare)   "; 
+		$printout .= "($price_avg_compare)   "; 
+                $printout .= "".$price_open."   ";
                 $printout .= "".$price_high."   ";
                 $printout .= "".$price_low."   ";
                 $printout .= "".$price_close."   ";
