@@ -1,1 +1,1 @@
-php daxcollector.php
+php daxcollector

@@ -9,9 +9,12 @@
 */
 
 $start_collector        = '085900';     // Collector start time (note: Exchange open @ 09:00)
-$end_collector          = '190000';
-$max_waittime 		= 3600;		// time to wait max to start the collector, 3600 equals 1h
+$end_collector          = '190000';	// Stop collecting data time (Note Exchange closed for warrants @ 18:45)
+$max_waittime 		= 3600;		// time to wait max to start the collector at start time, 3600 equals 1h
 $max_runtimes 		= 86400;	// Max limit for data collecting, 86400 equals around 12 hours
+
+$start_collector        = '195900';
+$end_collector          = '230000';
 
 $looper 		= 0;
 ini_set('display_errors', 0);
@@ -35,7 +38,6 @@ if($checktime < $start_collector) { die('Collector waited but not started.'); }
 
 echo "\nCollector started !\n\n";
 
-    // Loop for a minute
     for ($x = 1; $x < $max_runtimes; $x++) {
 
         $curl = curl_init();
@@ -57,15 +59,15 @@ echo "\nCollector started !\n\n";
 
         $dax_now 	= str_replace(".", "", $matches[0][0]);
 
-	$now = DateTime::createFromFormat('U.u', microtime(true));
-	$now = $now->format("Y-m-d H:i:s.u");
+	$now 		= DateTime::createFromFormat('U.u', microtime(true));
+	$now 		= $now->format("Y-m-d H:i:s.u");
         $dataStr 	= "".$x."; ".$now."; ".$dax_now."; \n";
 
         file_put_contents("data/$today-dax.log", $dataStr, FILE_APPEND);
         echo "".$checktime.": ".$dax_now." -> saved\n";
 
         $checktime      = date('His', time());
-        if($checktime > $end_collector) { $x = $max_runtimes; }
+        if($checktime > $end_collector) { $x = $max_runtimes; echo "Ending collector @ $checktime ($end_collector).\n";}
 
 	$looper++;
         sleep(1);
