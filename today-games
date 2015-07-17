@@ -21,10 +21,13 @@
         curl_setopt($curl, CURLOPT_HEADER, false);
 
         $data = curl_exec($curl);
+	$data = utf8_encode($data);
+
+print_r($data);
 
 	preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $data, $matches);
 
-print_r($matches);
+// print_r($matches);
 die('asd');
 
 	$data = $matches[1][3];
