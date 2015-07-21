@@ -9,7 +9,7 @@ php tracker certfificate/bullolja
 
 
 ### Example of usage of watchdog (track multiple shares)
-1. First make watchdog.conf from watchdog.conf.example and watchdog.list from watchdog.list.example (or run make.sh)
+1. First make watchdog.conf from watchdog.conf.example and watchdog.list from watchdog.list.example (or run make-watchdog-config.sh)
 2. run the program :
 
 php watchdog
