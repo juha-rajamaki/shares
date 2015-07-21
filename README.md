@@ -28,6 +28,12 @@ php createdaily T-LONGDAX-JR-CG 11200
 
 
 
+### Example of usage of Legend (show dax price history)
+
+php legend
+
+
+
 ## Licence
 
 The MIT License
