@@ -41,11 +41,13 @@
         foreach ($matches as $key => $value) {
 
 		preg_match_all('/([0-9]+\.[0-9]+)/', $value, $dax[$x]);
+		preg_match_all('#lm[^>]*>(.*?)2015#s', $value, $daxdate[$x]);
+
 		$x++;
 
 	}
 
-	echo "\n          Open    High    Low     Close   Points\n";
+	echo "\nDate     Open    High    Low     Close   Points\n";
 
 	$y = 0; $avg_open = 0;
         foreach ($dax as $key => $value) {
@@ -64,14 +66,7 @@
 	$sum_status_in_points = 0; $y = 0; $printout = ""; $price_close = '';
         foreach ($dax as $key => $value) {
 
-                $price_avg_compare = round($value[0][0] / $price_close * 100 - 100, 2);
-### TODO
-		$price_avg_compare = "-----";		
 
-		if($price_avg_compare == "-100") { $price_avg_compare = "------"; } else { 
-                	if($price_avg_compare > 0) {     $price_avg_compare = "".chr(27)."[1;32m+$price_avg_compare%". chr(27)."[0m".""; }
-                	if($price_avg_compare < 0) {     $price_avg_compare = "".chr(27)."[1;35m$price_avg_compare%". chr(27)."[0m".""; }
-		}
                 $price_open     = round($value[0][0], 0);
                 $price_high     = round($value[0][1], 0);
                 $price_low      = round($value[0][2], 0);
@@ -83,7 +78,7 @@
                 if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
                 if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
 
-		$printout .= "($price_avg_compare)   "; 
+		$printout .= "".$daxdate[$y][1][0]."  ";
                 $printout .= "".$price_open."   ";
                 $printout .= "".$price_high."   ";
                 $printout .= "".$price_low."   ";
@@ -94,5 +89,5 @@
         	$y++;
         }
 
-echo "".$printout."\n";
-echo "TOTAL: ".$sum_status_in_points." pt\n\n";
+	echo "".$printout."\n";
+	echo "TOTAL: ".$sum_status_in_points." pt\n\n";
