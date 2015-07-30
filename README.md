@@ -18,7 +18,7 @@ php watchdog
 
 ### Example to check today turbo warrants, minifutures etc 
 
-php today-games
+php today
 
 
 
