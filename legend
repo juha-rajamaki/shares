@@ -78,7 +78,9 @@
                 if($points_moved > 0) {     $points_moved = "".chr(27)."[1;32m$points_moved". chr(27)."[0m".""; }
                 if($points_moved < 0) {     $points_moved = "".chr(27)."[1;35m$points_moved". chr(27)."[0m".""; }
 
-		$printout .= "".$daxdate[$y][1][0]."  ";
+                $space_daxdate = str_repeat(' ', (7-strlen($daxdate[$y][1][0])));
+		$printout .= "$space_daxdate".$daxdate[$y][1][0]."  ";
+
                 $printout .= "".$price_open."   ";
                 $printout .= "".$price_high."   ";
                 $printout .= "".$price_low."   ";
