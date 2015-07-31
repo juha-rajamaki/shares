@@ -57,9 +57,11 @@
 
 
 	// printout
+	$printout = '';
 	foreach($warrants as $warrant) {
 
-
-	print_r($warrant);
+	$printout .= "".$warrant['name']."\n";
 
 	}
+
+	echo $printout;
