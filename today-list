@@ -2,7 +2,7 @@
 
 /*
 
-        Today Games - program for showing active turbowarrants
+        Today List - program for showing active turbowarrants
         Written by borre 2015
         Open Source - please free to use, share and contribute.
 
@@ -53,14 +53,20 @@
             
 	}
 
-        echo "INSTRUMENT   TYPE   BUY   SELL   LAST   AMOUNT   KNOCK   WK\n";
+        echo "\nINSTRUMENT         BUY   SELL   LAST   AMOUNT   KNOCK   WK\n";
 
-
-	// printout
+	// Printout
 	$printout = '';
 	foreach($warrants as $warrant) {
 
-	$printout .= "".$warrant['name']."\n";
+		// Warrant or minifuture name
+		$name = $warrant['name'];
+		$name = str_replace(" ", "-", $name);
+       		if (preg_match('/-LONG/',$name)) { $name = "".chr(27)."[1;32m$name". chr(27) . "[0m".""; $printout .= "".$name."\n"; }
+                elseif (preg_match('/LONG/',$name)) { $name = "".chr(27)."[1;36m$name". chr(27) . "[0m".""; $printout .= "".$name."\n"; }
+        	if (preg_match('/SHRT/',$name)) { $name = "".chr(27)."[1;31m$name". chr(27) . "[0m".""; $printout .= "".$name."\n"; }
+
+#		$printout .= "\n";
 
 	}
 
