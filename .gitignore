@@ -1,5 +1,4 @@
 *.conf
 *.list
 /tmp/
-/watchdog-daily/
 /app/daxduck/tmp/

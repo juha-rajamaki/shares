@@ -1,0 +1,6 @@
+<?php
+$title          = 'B-SHRTDAX-PQ-CZB';
+$knock          = '11601,69';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-SHRTDAX-PQ-CZB.NGM';
+$engine         = '2';
+$my_price       = 0;
