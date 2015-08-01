@@ -2,7 +2,7 @@
 
 /*
 
-        Today List - program for showing active turbowarrants
+        Today List - program for showing active DAX- turbowarrants
         Written by borre 2015
         Open Source - please free to use, share and contribute.
 
@@ -64,7 +64,7 @@
 
                 $space_name              = str_repeat(' ', (17-strlen($name)));
 
-
+		### LONGS
        		if (preg_match('/-LONG/',$name))
 		{
 
@@ -82,6 +82,7 @@
 			$printout .= "".$knock."\n";
 
 		}
+		### SHORTS
         	elseif (preg_match('/SHRT/',$name) || preg_match('/SHORT/',$name))
 		{
 
