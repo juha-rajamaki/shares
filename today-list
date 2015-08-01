@@ -28,7 +28,7 @@
 	// Clean crap
 	$data = $matches[1];
         $data = array_slice($data, 4, 30);
-        
+
 	$x = 0;
         foreach($data as $row => $value) {
 
@@ -59,33 +59,44 @@
 	$printout = '';
 	foreach($warrants as $warrant) {
 
-		// Warrant or minifuture name
-		$name = $warrant['name'];
-		$name = str_replace(" ", "-", $name);
+		$name = str_replace(" ", "-", $warrant['name']);
+		$knock = str_replace(" ", "", $warrant['knock']);
 
-       		if (preg_match('/-LONG/',$name)) {
-	                $space_name              = str_repeat(' ', (20-strlen($name)));
+                $space_name              = str_repeat(' ', (17-strlen($name)));
+
+
+       		if (preg_match('/-LONG/',$name))
+		{
+
 			$name = "".chr(27)."[1;32m$name". chr(27) . "[0m"."";
 			$printout .= "".$name."".$space_name."  ";
-			$printout .= "".$warrant['knock']."\n";
+			$printout .= "".$knock."\n";
 
 		}
 
-                if (preg_match('/LONG/',$name)) {
-                        $space_name              = str_repeat(' ', (20-strlen($name)));
+                elseif (preg_match('/LONG/',$name))
+		{
+
 			$name = "".chr(27)."[1;36m$name". chr(27) . "[0m"."";
                         $printout .= "".$name."".$space_name."  ";
-			$printout .= "".$warrant['knock']."\n";
-		}
+			$printout .= "".$knock."\n";
 
-        	if (preg_match('/SHRT/',$name)) {
-                        $space_name              = str_repeat(' ', (20-strlen($name)));
+		}
+        	elseif (preg_match('/SHRT/',$name) || preg_match('/SHORT/',$name))
+		{
+
 			$name = "".chr(27)."[1;31m$name". chr(27) . "[0m"."";
                         $printout .= "".$name."".$space_name."  ";
-			$printout .= "".$warrant['knock']."\n";
-		}
+			$printout .= "".$knock."\n";
 
-#		$printout .= "\n";
+		} else {
+
+                        $name = "".chr(27)."[1;30m$name". chr(27) . "[0m"."";
+                        $printout .= "".$name."".$space_name."  ";
+                        $printout .= "".$knock."\n";
+
+
+		}
 
 	}
 
