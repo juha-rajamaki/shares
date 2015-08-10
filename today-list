@@ -53,7 +53,7 @@
             
 	}
 
-        echo "\nINSTRUMENT         KNOCK \n";
+        echo "\nINSTRUMENT            BUY    SELL   LAST   KNOCK \n";
 
 	// Printout
 	$printout = '';
@@ -70,16 +70,14 @@
 
 			$name = "".chr(27)."[1;32m$name". chr(27) . "[0m"."";
 			$printout .= "".$name."".$space_name."  ";
-			$printout .= "".$knock."\n";
 
 		}
-
+		### MINIFUTURE
                 elseif (preg_match('/LONG/',$name))
 		{
 
 			$name = "".chr(27)."[1;36m$name". chr(27) . "[0m"."";
                         $printout .= "".$name."".$space_name."  ";
-			$printout .= "".$knock."\n";
 
 		}
 		### SHORTS
@@ -88,16 +86,21 @@
 
 			$name = "".chr(27)."[1;31m$name". chr(27) . "[0m"."";
                         $printout .= "".$name."".$space_name."  ";
-			$printout .= "".$knock."\n";
 
 		} else {
 
                         $name = "".chr(27)."[1;30m$name". chr(27) . "[0m"."";
                         $printout .= "".$name."".$space_name."  ";
-                        $printout .= "".$knock."\n";
-
 
 		}
+
+                $printout .= "   ".$warrant['buy']."";
+                $printout .= "   ".$warrant['sell']."";
+                $printout .= "   ".$warrant['last']."";
+
+                $printout .= "   ".$knock."";
+
+		$printout .= "\n";
 
 	}
 
