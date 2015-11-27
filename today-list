@@ -56,6 +56,11 @@
 
         echo "\nINSTRUMENT            BUY    SELL   LAST   KNOCK \n";
 
+	unset($warrants[0]);
+	unset($warrants[1]);
+	unset($warrants[2]);
+	unset($warrants[3]);
+
 	// Printout
 	$printout = '';
 	foreach($warrants as $warrant) {
