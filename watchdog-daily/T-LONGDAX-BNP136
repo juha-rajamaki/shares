@@ -1,0 +1,6 @@
+<?php
+$title          = 'T-LONGDAX-BNP136';
+$knock          = '';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-LONGDAX-BNP136.NGM';
+$engine         = '2';
+$my_price       = 0;

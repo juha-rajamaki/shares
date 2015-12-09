@@ -1,0 +1,6 @@
+<?php
+$title          = 'T-SHORTDAX-BNP75';
+$knock          = '';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-SHORTDAX-BNP75.NGM';
+$engine         = '2';
+$my_price       = 0;
