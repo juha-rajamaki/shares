@@ -13,7 +13,8 @@
 	ini_alter('date.timezone','Europe/Helsinki');
 	$today = date('Y-m-d');
 
-	$url = "https://www.nordnet.fi/mux/web/marknaden/kurslista/warranter.html?flerSokfalt=1&selectedtab=Overview&sortcolumn=turnover_volume&sortorder=descending&instrument=16147954&currency=EUR&market_view=&instr_group_type=&instr_type=&issuer=&date=&";
+//	$url = "https://www.nordnet.fi/mux/web/marknaden/kurslista/warranter.html?flerSokfalt=1&selectedtab=Overview&sortcolumn=turnover_volume&sortorder=descending&instrument=16147954&currency=EUR&market_view=&instr_group_type=&instr_type=&issuer=&date=&";
+	$url = "https://www.nordnet.fi/mux/web/marknaden/kurslista/warranter.html?flerSokfalt=1&selectedtab=Overview&sortcolumn=turnover_volume&sortorder=descending&currency=EUR&firstLevelIssuer=&instrument=16103730&market_view=&instr_group_type=&instr_type=&issuer=&date=&";
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -54,6 +55,11 @@
 	}
 
         echo "\nINSTRUMENT            BUY    SELL   LAST   KNOCK \n";
+
+	unset($warrants[0]);
+	unset($warrants[1]);
+	unset($warrants[2]);
+	unset($warrants[3]);
 
 	// Printout
 	$printout = '';
