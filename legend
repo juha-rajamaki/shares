@@ -13,7 +13,7 @@
 	ini_alter('date.timezone','Europe/Helsinki');
 	$today = date('Y-m-d');
 
-	$limiter = 30;
+	$limiter = 20;
 
 	$url = "https://www.google.com/finance/historical?q=INDEXDB%3ADAX&start=0&num=200&ei=6zyiVcCOEIHisgGc_axg";
         $curl = curl_init();
