@@ -1,6 +1,0 @@
-<?php
-$title          = 'BULL-NOKIA-X5-S';
-$knock          = '';
-$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-NOKIA-X5-S.NGM';
-$engine         = '2';
-$my_price       = 0;

@@ -1,0 +1,6 @@
+<?php
+$title          = 'T-LONG-DAX-V144';
+$knock          = '';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-LONG-DAX-V144.NGM';
+$engine         = '4';
+$my_price       = 0;
