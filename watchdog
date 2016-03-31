@@ -49,7 +49,7 @@ for ($x = 0; $x <= 10000; $x++) {
 
 			"SHARE" => "watchdog-daily/$daily",
 	                "ALL_IN"        => "1.5",
-        	        "STRONG_BUY"    => "3.5",
+        	        "STRONG_BUY"    => "2.5",
                		"BUY"           => "5",
                 	"SELL"          => "7.5",
                 	"STRONG_SELL"   => "10",
