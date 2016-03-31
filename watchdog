@@ -213,7 +213,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Strategy indicator
 		$status = "";
 		if($current == "-") { $status = "".chr(27) . "[40m" ."-          ". chr(27) . "[0m".""; }
-		if($current == "") { $status = "".chr(27) . "[41m" ."KNOCKED    ". chr(27) . "[0m".""; }
+		if($current == "") { $status = "".chr(27) . "[40m" ."KNOCKED    ". chr(27) . "[0m".""; }
 		elseif($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
                 elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
