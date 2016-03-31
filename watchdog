@@ -93,6 +93,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         $buy_now       				= $matches[0][3];
 
                         $today_trades   = 'Xxx';
+			
 
 		}
                 
@@ -162,7 +163,7 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_highest                          = $matches[0][6];
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][3];
-
+			
                 } else {
 
                         // Get numbers
@@ -212,6 +213,7 @@ for ($x = 0; $x <= 10000; $x++) {
 		// Strategy indicator
 		$status = "";
 		if($current == "-") { $status = "".chr(27) . "[40m" ."-          ". chr(27) . "[0m".""; }
+		if($current == "") { $status = "".chr(27) . "[41m" ."KNOCKED    ". chr(27) . "[0m".""; }
 		elseif($current < $item['SELL'] && $current > $item['BUY']) { $status = "".chr(27) . "[40m" ."HOLD       ". chr(27) . "[0m".""; }
                 elseif($current < $item['ALL_IN']) { $status = "".chr(27) . "[42m" ."ALL IN     ". chr(27) . "[0m".""; }
                 elseif($current < $item['STRONG_BUY']) { $status = "".chr(27) . "[42m" ."STRONG BUY ". chr(27) . "[0m".""; }
