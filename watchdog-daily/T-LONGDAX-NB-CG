@@ -1,6 +1,6 @@
 <?php
 $title          = 'T-LONGDAX-NB-CG';
-$knock          = '';
+$knock          = '9718';
 $url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-LONGDAX-NB-CG.NGM';
 $engine         = '4';
-$my_price       = 0;
+$my_price       = 1.18;

@@ -1,0 +1,6 @@
+<?php
+$title          = 'T-SHORTDAX-LH-CG';
+$knock          = '';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=T-SHORTDAX-LH-CG.NGM';
+$engine         = '4';
+$my_price       = 0;
