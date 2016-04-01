@@ -327,7 +327,7 @@ for ($x = 0; $x <= 10000; $x++) {
 			if($my_price > $buy_now) { $position = "".chr(27)."[1;33m$position%". chr(27) . "[0m".""; }
                         if($my_price == $buy_now) { $position = "".chr(27)."[1;36m$position%". chr(27) . "[0m".""; }
 
-			$printout .= "$position #"; $my_price = '0';
+			$printout .= "$position # "; $my_price = '0';
 		}
 
 		$printout .= "$collector_printout ";
