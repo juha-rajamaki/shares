@@ -1,0 +1,6 @@
+<?php
+$title          = 'B-LONGDAX-A1-CZB';
+$knock          = '9549,61';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGDAX-A1-CZB.NGM';
+$engine         = '4';
+$my_price       = 0.7;
