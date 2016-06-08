@@ -11,8 +11,13 @@
 	$txt = "<?php\n";
         $txt .= '$title          = '; $txt .= "'"; $txt .= "$filename"; $txt .= "';\n";
 	$txt .= '$knock          = '; $txt .= "'"; $txt .= "$knock"; $txt .= "';\n";
-        $txt .= '$url          	= '; $txt .= "'"; $txt .= "http://www.netfondsbank.fi/quotes/ppaper.php?paper=$filename.NGM"; $txt .= "';\n";
+        $txt .= '$url          	 = '; $txt .= "'"; $txt .= "http://www.netfondsbank.fi/quotes/ppaper.php?paper=$filename.NGM"; $txt .= "';\n";
         $txt .= '$engine         = '; $txt .= "'"; $txt .= "4"; $txt .= "';\n";
+        $txt .= '$ALL_IN         = '; $txt .= "'"; $txt .= "1"; $txt .= "';\n";
+        $txt .= '$STRONG_BUY     = '; $txt .= "'"; $txt .= "1.5"; $txt .= "';\n";
+        $txt .= '$BUY            = '; $txt .= "'"; $txt .= "2"; $txt .= "';\n";
+        $txt .= '$SELL           = '; $txt .= "'"; $txt .= "2.5"; $txt .= "';\n";
+        $txt .= '$STRONG_SELL    = '; $txt .= "'"; $txt .= "4.5"; $txt .= "';\n";
         $txt .= '$my_price       = 0;';
 
 	fwrite($myfile, $txt);

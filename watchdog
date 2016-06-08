@@ -45,16 +45,19 @@ for ($x = 0; $x <= 10000; $x++) {
 
 	foreach($dailyfiles as $daily):
 
+	include("watchdog-daily/$daily");
+
 		$array = array(
 
 			"SHARE" => "watchdog-daily/$daily",
-	                "ALL_IN"        => "1.5",
-        	        "STRONG_BUY"    => "2.5",
-               		"BUY"           => "5",
-                	"SELL"          => "7.5",
-                	"STRONG_SELL"   => "10",
+	                "ALL_IN"        => "$ALL_IN",
+        	        "STRONG_BUY"    => "$STRONG_BUY",
+               		"BUY"           => "$BUY",
+                	"SELL"          => "$SELL",
+                	"STRONG_SELL"   => "$STRONG_SELL",
 
 		);
+
 		array_push($watchlist, $array);
 
 	endforeach;
