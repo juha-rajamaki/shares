@@ -2,7 +2,7 @@
 $title          = 'E-SOIP.BTSE';
 $knock          = '';
 $url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=E-SOIP.BTSE.NGM';
-$engine         = '4';
+$engine         = '5';
 $ALL_IN         = '1';
 $STRONG_BUY     = '1.5';
 $BUY            = '2';

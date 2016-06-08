@@ -95,8 +95,7 @@ for ($x = 0; $x <= 10000; $x++) {
 			$sell_now				= $matches[0][4];
                         $buy_now       				= $matches[0][3];
 
-                        $today_trades   = 'Xxx';
-			
+                        $today_trades   = 'Xxx';			
 
 		}
                 
@@ -148,10 +147,9 @@ for ($x = 0; $x <= 10000; $x++) {
                         if(count($matches[0]) == 2) { $current  = "-"; }
 
 			$today_trades   = '';
-                }
 
+                } elseif($engine == 4) {
 		// New warrants
-                elseif($engine == 4) {
 
                         // Get numbers
                         preg_match_all('/([0-9]+)/', $matches[0][14], $matches_numbers);
@@ -166,7 +164,26 @@ for ($x = 0; $x <= 10000; $x++) {
                         $today_highest                          = $matches[0][6];
                         $sell_now                               = $matches[0][4];
                         $buy_now                                = $matches[0][3];
+
+                } elseif($engine == 5) {
+		// New - normal share
+
+                        // Get numbers
+                        preg_match_all('/([0-9]+)/', $matches[0][14], $matches_numbers);
+                        $count          = count($matches_numbers[0])-1;
+
+                        // Get decimals (note! : overwriting)
+                        preg_match_all('/([0-9]+\.[0-9]+)/', $matches[0][14], $matches);
+
+                        $today_start                            = $matches[0][5];
+                        $current                                = $matches[0][0];
+                        $today_lowest                           = $matches[0][7];
+                        $today_highest                          = $matches[0][6];
+                        $sell_now                               = $matches[0][5];
+                        $buy_now                                = $matches[0][4];
 			
+	//print_r($matches);
+
                 } else {
 
                         // Get numbers
