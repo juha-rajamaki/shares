@@ -340,12 +340,12 @@ for ($x = 0; $x <= 10000; $x++) {
 		// If my price is set
 		if(isset($my_price) && $my_price != '0') {
 
-			$position = round(($buy_now / $my_price)*100-100, 2); 
+			$position = round(($current / $my_price)*100-100, 2); 
 
 			// Colorize my price
-			if($my_price < $buy_now) { $position = "".chr(27)."[1;32m+$position%". chr(27) . "[0m".""; }
-			if($my_price > $buy_now) { $position = "".chr(27)."[1;33m$position%". chr(27) . "[0m".""; }
-                        if($my_price == $buy_now) { $position = "".chr(27)."[1;36m$position%". chr(27) . "[0m".""; }
+			if($my_price < $current) { $position = "".chr(27)."[1;32m+$position%". chr(27) . "[0m".""; }
+			if($my_price > $current) { $position = "".chr(27)."[1;33m$position%". chr(27) . "[0m".""; }
+                        if($my_price == $current) { $position = "".chr(27)."[1;36m$position%". chr(27) . "[0m".""; }
 
 			$printout .= "$position # "; $my_price = '0';
 		}
