@@ -1,0 +1,6 @@
+<?php
+$title          = 'E-SOIP.BTSE';
+$knock          = '';
+$url          	= 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=E-SOIP.BTSE.NGM';
+$engine         = '4';
+$my_price       = 0;
