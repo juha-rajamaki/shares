@@ -8,4 +8,4 @@ $STRONG_BUY     = '0.45';
 $BUY            = '0.5';
 $SELL           = '0.7';
 $STRONG_SELL    = '1';
-$my_price       = 0.57;
+$my_price       = 0.54;
