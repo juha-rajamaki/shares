@@ -1,7 +1,7 @@
 <?php
-$title          = 'B-LONGDAX-DP-CZB';
+$title          = 'BULL-OLJA-X12VON';
 $knock          = '';
-$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGDAX-DP-CZB.NGM';
+$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-OLJA-X12VON.NGM';
 $engine         = '4';
 $ALL_IN         = '1';
 $STRONG_BUY     = '1.5';
