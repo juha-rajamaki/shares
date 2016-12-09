@@ -1,0 +1,11 @@
+<?php
+$title          = 'BULL-NOKIA-X5VON';
+$knock          = '';
+$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-NOKIA-X5VON.NGM';
+$engine         = '4';
+$ALL_IN         = '1';
+$STRONG_BUY     = '1.5';
+$BUY            = '2';
+$SELL           = '2.5';
+$STRONG_SELL    = '4.5';
+$my_price       = 0;
