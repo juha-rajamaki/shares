@@ -1,7 +1,7 @@
 <?php
-$title          = 'BULL-NOKIA-X5-V';
+$title          = 'BULL-NOKIA-X5-S';
 $knock          = '';
-$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-NOKIA-X5-V.NGM';
+$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-NOKIA-X5-S.NGM';
 $engine         = '4';
 $ALL_IN         = '1';
 $STRONG_BUY     = '1.5';
