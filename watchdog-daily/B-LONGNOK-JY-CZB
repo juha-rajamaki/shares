@@ -1,6 +1,6 @@
 <?php
 $title          = 'B-LONGNOK-JY-CZB';
-$knock          = '';
+$knock          = '5.12';
 $url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGNOK-JY-CZB.NGM';
 $engine         = '2';
 $ALL_IN         = '1';
