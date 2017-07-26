@@ -1,8 +1,8 @@
 <?php
-$title          = 'BULL-FINGB-X3-V';
+$title          = 'B-LONGNOK-JX-CZB';
 $knock          = '';
-$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=BULL-FINGB-X3-V.NGM';
-$engine         = '4';
+$url          	 = 'http://www.netfondsbank.fi/quotes/ppaper.php?paper=B-LONGNOK-JX-CZB.NGM';
+$engine         = '2';
 $ALL_IN         = '1';
 $STRONG_BUY     = '1.5';
 $BUY            = '2';
